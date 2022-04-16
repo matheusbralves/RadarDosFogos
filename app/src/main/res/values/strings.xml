@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">RadarDosFogos</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="drawer_open">Aberto</string>
+    <string name="inicio">Inicio</string>
+    <string name="lista_de_fogos">Lista de Fogos</string>
+    <string name="mapa_de_fogos">Mapa de Fogos</string>
+    <string name="registrar_fogo">Registrar Fogo</string>
+    <string name="meus_registros">Meus Registros</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="drawer_close">Fechado</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
