@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#FA8C00</color>
+    <color name="sendButtonColor">#3BC438</color>
 </resources>

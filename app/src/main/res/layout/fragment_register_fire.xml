@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".RegisterFireFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/nome_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nome" />
+
+            <EditText
+                android:id="@+id/nome_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/numerocc_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/numero_cc" />
+
+            <EditText
+                android:id="@+id/numerocc_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="8"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/distrito_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/distrito" />
+
+            <EditText
+                android:id="@+id/distrito_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/data_e_hora_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/data_e_hora" />
+
+            <EditText
+                android:id="@+id/data_e_hora_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/foto_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/foto" />
+
+            <ImageButton
+                android:id="@+id/foto_input"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:contentDescription="@string/enviar_foto"
+                android:src="@drawable/foto_input"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/send_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/botao_enviar"
+                android:backgroundTint="@color/sendButtonColor" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

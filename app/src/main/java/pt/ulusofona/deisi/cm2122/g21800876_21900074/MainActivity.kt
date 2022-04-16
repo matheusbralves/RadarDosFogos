@@ -11,6 +11,7 @@ private lateinit var binding: ActivityMainBinding
 
 //Variáveis para passar entre ecrãs tem que estar nessa activity
 val radiusListMain = arrayListOf<String>()
+val myRegisterList = arrayListOf<String>()
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,6 +51,10 @@ class MainActivity : AppCompatActivity() {
             //Adicionar para mais navegações
             R.id.nav_inicio ->
                 NavigationManager.goToDashboardFragment(
+                    supportFragmentManager
+                )
+            R.id.nav_registrar ->
+                NavigationManager.goToRegisterFireFragment(
                     supportFragmentManager
                 )
         }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboardBinding
 
 private const val ARG_RADIUSLIST = "param1"
@@ -20,6 +21,9 @@ class DashboardFragment : Fragment() {
         arguments?.let {
             radiusList = it.getStringArrayList(ARG_RADIUSLIST)!!//Confirmar se ta funcionando isso
         }
+
+        //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Inicio"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -31,7 +35,7 @@ class DashboardFragment : Fragment() {
     }
 
 
-    //Falta onStart com o adapter
+    //Falta onStart com toda a lógica da Dashboard
 
     companion object {
         @JvmStatic fun newInstance(radiusList: ArrayList<String>) : DashboardFragment =

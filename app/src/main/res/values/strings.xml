@@ -1,6 +1,10 @@
 <resources>
+    <!-- Strings do Android -->
     <string name="app_name">RadarDosFogos</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Strings do Drawer Menu -->
     <string name="drawer_open">Aberto</string>
     <string name="inicio">Inicio</string>
     <string name="lista_de_fogos">Lista de Fogos</string>
@@ -9,5 +13,14 @@
     <string name="meus_registros">Meus Registros</string>
     <string name="configuracoes">Configurações</string>
     <string name="drawer_close">Fechado</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Strings do Registrar Fogo -->
+    <string name="nome">Nome:</string>
+    <string name="numero_cc">Número Cartão Cidadão:</string>
+    <string name="distrito">Distrito:</string>
+    <string name="data_e_hora">Data e Hora:</string>
+    <string name="foto">Foto:</string>
+    <string name="enviar_foto">Enviar Foto</string>
+    <string name="botao_enviar">Enviar</string>
+
 </resources>

@@ -16,4 +16,8 @@ object NavigationManager{
     fun goToDashboardFragment(fm: FragmentManager){
         placeFragment(fm, DashboardFragment())
     }
+
+    fun goToRegisterFireFragment(fm: FragmentManager){
+        placeFragment(fm, RegisterFireFragment())
+    }
 }
