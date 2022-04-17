@@ -1,13 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".DashboardFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/ajuda_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/perigo"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:paddingBottom="15dp"/>
+
+            <Button
+                android:id="@+id/send_button"
+                android:layout_width="200dp"
+                android:layout_height="55dp"
+                android:text="@string/chamar_ajuda"
+                android:backgroundTint="@color/sendHelpButtonColor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="25dp"
+            android:paddingHorizontal="10dp">
+
+            <TextView
+                android:id="@+id/fire_radius_label"
+                android:layout_width="85dp"
+                android:layout_height="35dp"
+                android:layout_weight="0"
+                android:text="@string/fogos_radius"
+                android:textSize="25sp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="55dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <!-- Aqui vai a lista do radius -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

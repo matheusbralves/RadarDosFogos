@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#FA8C00</color>
     <color name="sendButtonColor">#3BC438</color>
+    <color name="sendHelpButtonColor">#FF0D0D</color>
+    <color name="risk_circle_reduzido">#73FA44</color>
+    <color name="risk_circle_moderado">#ACB334</color>
+    <color name="risk_circle_elevado">#FF8E15</color>
+    <color name="risk_circle_muito_elevado">#FF4E11</color>
+    <color name="risk_circle_maximo">#FF0000</color>
 </resources>

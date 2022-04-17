@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentRegisterFireBinding
 
-
 private lateinit var binding: FragmentRegisterFireBinding
 private val TAG = MainActivity::class.java.simpleName
 

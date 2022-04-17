@@ -1,15 +1,21 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboardBinding
+
 
 private const val ARG_RADIUSLIST = "param1"
 private lateinit var binding: FragmentDashboardBinding
+private val TAG = MainActivity::class.java.simpleName
 
 class DashboardFragment : Fragment() {
     //Lista de fogos dentro de um certo raio
@@ -23,7 +29,7 @@ class DashboardFragment : Fragment() {
         }
 
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Inicio"
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Início"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -34,8 +40,36 @@ class DashboardFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart(){
+        super.onStart()
+        Log.i(TAG, "Tela dashboard")
 
-    //Falta onStart com toda a lógica da Dashboard
+        spinnerSetup()
+    }
+
+    private fun spinnerSetup(){
+        val spinner: Spinner = binding.spinner
+        ArrayAdapter.createFromResource(
+            requireActivity(),
+            R.array.radius_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
+
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                radiusSelect()
+            }
+        }
+    }
+
+    private fun radiusSelect(){
+        val selected = binding.spinner.selectedItem
+        Log.i(TAG, "Item é == $selected")
+    }
 
     companion object {
         @JvmStatic fun newInstance(radiusList: ArrayList<String>) : DashboardFragment =

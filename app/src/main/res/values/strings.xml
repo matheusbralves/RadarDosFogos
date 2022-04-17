@@ -13,6 +13,7 @@
     <string name="meus_registros">Meus Registros</string>
     <string name="configuracoes">Configurações</string>
     <string name="drawer_close">Fechado</string>
+    <string name="risk_circle">Risco</string>
 
     <!-- Strings do Registrar Fogo -->
     <string name="nome">Nome:</string>
@@ -22,5 +23,15 @@
     <string name="foto">Foto:</string>
     <string name="enviar_foto">Enviar Foto</string>
     <string name="botao_enviar">Enviar</string>
+
+    <!-- Strings da Dashboard -->
+    <string name="perigo"><b>Está em perigo?</b></string>
+    <string name="chamar_ajuda"><b>CHAMAR AJUDA</b></string>
+    <string name="fogos_radius"><b>Fogos</b></string>
+    <string-array name="radius_array">
+        <item>25 KM</item>
+        <item>35 KM</item>
+        <item>50 KM</item>
+    </string-array>
 
 </resources>
