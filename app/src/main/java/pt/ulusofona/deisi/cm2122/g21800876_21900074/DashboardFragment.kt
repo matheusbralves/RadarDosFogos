@@ -44,10 +44,10 @@ class DashboardFragment : Fragment() {
         super.onStart()
         Log.i(TAG, "Tela dashboard")
 
-        spinnerSetup()
+        radiusSpinnerSetup()
     }
 
-    private fun spinnerSetup(){
+    private fun radiusSpinnerSetup(){
         val spinner: Spinner = binding.spinner
         ArrayAdapter.createFromResource(
             requireActivity(),

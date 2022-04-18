@@ -19,10 +19,29 @@
     <string name="nome">Nome:</string>
     <string name="numero_cc">Número Cartão Cidadão:</string>
     <string name="distrito">Distrito:</string>
-    <string name="data_e_hora">Data e Hora:</string>
     <string name="foto">Foto:</string>
     <string name="enviar_foto">Enviar Foto</string>
     <string name="botao_enviar">Enviar</string>
+    <string-array name="district_array">
+        <item>Aveiro</item>
+        <item>Beja</item>
+        <item>Braga</item>
+        <item>Bragança</item>
+        <item>Castelo Branco</item>
+        <item>Coimbra</item>
+        <item>Évora</item>
+        <item>Faro</item>
+        <item>Guarda</item>
+        <item>Leiria</item>
+        <item>Lisboa</item>
+        <item>Portalegre</item>
+        <item>Porto</item>
+        <item>Santarém</item>
+        <item>Setúbal</item>
+        <item>Viana do Castelo</item>
+        <item>Vila Real</item>
+        <item>Viseu</item>
+    </string-array>
 
     <!-- Strings da Dashboard -->
     <string name="perigo"><b>Está em perigo?</b></string>

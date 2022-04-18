@@ -1,7 +1,8 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,15 @@ val myRegisterList = arrayListOf<String>()
 
 class MainActivity : AppCompatActivity() {
 
+    val handler = Handler(Looper.getMainLooper())
+
+    val looper = object: Runnable {
+        override fun run() {
+            binding.riskCircle.setBackgroundResource(R.drawable.circle_moderado)
+            handler.postDelayed(this, 20000)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -30,6 +40,16 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         setSupportActionBar(binding.toolbar)
         setupDrawerMenu()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        handler.postDelayed(looper, 20000)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacks(looper)
     }
 
     private fun screenRotated(savedInstanceState: Bundle?) : Boolean {

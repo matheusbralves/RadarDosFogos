@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/drawable/circle.xml" value="0.124" />
+        <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/drawable/circle_elevado.xml" value="0.124" />
+        <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/drawable/circle_maximo.xml" value="0.124" />
+        <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/drawable/circle_moderado.xml" value="0.124" />
+        <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/drawable/circle_muito_elevado.xml" value="0.124" />
         <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/layout/fragment_dashboard.xml" value="0.264" />
         <entry key="..\:/Users/Matheus/StudioProjects/RadarDosFogos/app/src/main/res/layout/fragment_random.xml" value="0.22826086956521738" />
