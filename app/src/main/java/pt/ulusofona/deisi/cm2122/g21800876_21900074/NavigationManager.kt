@@ -20,4 +20,8 @@ object NavigationManager{
     fun goToRegisterFireFragment(fm: FragmentManager){
         placeFragment(fm, RegisterFireFragment())
     }
+
+    fun goToFireListFragment(fm: FragmentManager) {
+        placeFragment(fm, FireListFragment())
+    }
 }
