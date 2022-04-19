@@ -6,20 +6,16 @@ import android.util.Log
 private val TAG = MainActivity::class.java.simpleName
 
 class FireModel {
-    private val registros = arrayListOf<Fire>()
+
+    private val registros = arrayListOf<Fire>(Fire("turminha do siri", "12345678", "Setubal","12323", "1234"),
+        Fire("hdhasodkhaso", "12345678", "Setubal","12323", "1234"),
+        Fire("teste", "12345678", "Setubal","12323", "1234"))
 
     fun addRegistro(nome : String, numeroCC : String, distrito : String, data : String,
-    hora : String, foto : Bitmap) {
-        val fire = Fire()
-        fire.nome = nome
-        fire.numeroCC = numeroCC
-        fire.distrito = distrito
-        fire.data = data
-        fire.hora = hora
-        fire.foto = foto
+    hora : String) {
 
-        registros.add(fire)
-        Log.i(TAG, "$fire")
+        registros.add(Fire(nome, numeroCC, distrito, data, hora))
+        //Log.i(TAG, "$fire")
     }
 
     fun getAllRegistros() : List<Fire> {

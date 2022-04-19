@@ -28,7 +28,14 @@ class FireListFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var binding: FragmentFireListBinding
-    private val locations = mutableListOf<String>("Batata", "dajosndkoa", "hasdbjasb")
+    private var model: FireModel = FireModel()
+    /*private var locations = listOf<Fire>(
+        Fire("turminha do siri", "12345678", "Setubal","12323", "1234"),
+        Fire("hdhasodkhaso", "12345678", "Setubal","12323", "1234"),
+        Fire("teste", "12345678", "Setubal","12323", "1234")
+    )
+    */
+    private var locations = model.getAllRegistros()
     private val adapter = FireListAdapter(locations)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +50,8 @@ class FireListFragment : Fragment() {
         super.onStart()
         binding.rvList.layoutManager = LinearLayoutManager(activity as Context)
         binding.rvList.adapter = adapter
-
+        //model = FireModel()
+        //locations = model.getAllRegistros()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -51,6 +59,11 @@ class FireListFragment : Fragment() {
             R.layout.fragment_fire_list, container, false
         )
         binding = FragmentFireListBinding.bind(view)
+        //model = FireModel()
+        //model.addRegistro2("turminha do siri", "12345678", "Teste", "12/2/1009","123232")
+        //model.addRegistro2("khasdokoashd", "12345678", "Teste", "12/2/1009","hadosha")
+        //model.addRegistro2("daksdokasd", "12345678", "Teste", "12/2/1009","jdaosd")
+        //locations = model.getAllRegistros()
         return binding.root
     }
 

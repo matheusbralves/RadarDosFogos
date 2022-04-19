@@ -6,7 +6,14 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/fire_location"
+        android:id="@+id/fire_distrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:id="@+id/fire_hora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
