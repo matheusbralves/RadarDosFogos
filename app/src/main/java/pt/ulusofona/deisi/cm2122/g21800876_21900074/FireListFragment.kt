@@ -1,10 +1,16 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
+import android.content.Context
+import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
+import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.ItemFireBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +27,10 @@ class FireListFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentFireListBinding
+    private val locations = mutableListOf<String>("Batata", "dajosndkoa", "hasdbjasb")
+    private val adapter = FireListAdapter(locations)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -29,12 +39,19 @@ class FireListFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fire_list, container, false)
+    override fun onStart() {
+        super.onStart()
+        binding.rvList.layoutManager = LinearLayoutManager(activity as Context)
+        binding.rvList.adapter = adapter
+
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(
+            R.layout.fragment_fire_list, container, false
+        )
+        binding = FragmentFireListBinding.bind(view)
+        return binding.root
     }
 
     companion object {
