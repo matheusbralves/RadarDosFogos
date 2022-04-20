@@ -3,6 +3,7 @@ package pt.ulusofona.deisi.cm2122.g21800876_21900074
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,11 +15,25 @@ private val TAG = MainActivity::class.java.simpleName
 
 class MainActivity : AppCompatActivity() {
 
-    val handler = Handler(Looper.getMainLooper())
+    private val handler = Handler(Looper.getMainLooper())
 
-    val looper = object: Runnable {
+    private val cores = arrayListOf(
+        R.drawable.circle_maximo,
+        R.drawable.circle_muito_elevado,
+        R.drawable.circle_elevado,
+        R.drawable.circle_moderado,
+        R.drawable.circle_reduzido
+    )
+
+    var indexCores = -1
+
+    private val looper = object: Runnable {
         override fun run() {
-            binding.riskCircle.setBackgroundResource(R.drawable.circle_moderado)
+            indexCores += 1
+            if(indexCores > 4){
+                indexCores = 0
+            }
+            binding.riskCircle.setBackgroundResource(cores[indexCores])
             handler.postDelayed(this, 20000)
         }
     }

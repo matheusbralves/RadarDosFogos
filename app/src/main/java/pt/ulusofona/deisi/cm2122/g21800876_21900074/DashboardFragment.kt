@@ -11,14 +11,18 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboardBinding
 
 private lateinit var binding: FragmentDashboardBinding
 private val TAG = MainActivity::class.java.simpleName
 
 class DashboardFragment : Fragment() {
-    private var model: FireModel = FireModel
+    private lateinit var viewModel : FireViewModel
     private val adapter = FireListAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -28,6 +32,7 @@ class DashboardFragment : Fragment() {
         val view = inflater.inflate(
             R.layout.fragment_dashboard, container, false
         )
+        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         binding = FragmentDashboardBinding.bind(view)
         return binding.root
     }
@@ -38,7 +43,13 @@ class DashboardFragment : Fragment() {
         radiusSpinnerSetup()
         binding.radiusList.layoutManager = LinearLayoutManager(activity as Context)
         binding.radiusList.adapter = adapter
-        adapter.updateItems(model.getAllRegistros())
+        viewModel.onGetListDisplay { updateList(it) }
+    }
+
+    private fun updateList(fireList : List<Fire>){
+        CoroutineScope(Dispatchers.Main).launch {
+            adapter.updateItems(fireList)
+        }
     }
 
     private fun radiusSpinnerSetup(){
