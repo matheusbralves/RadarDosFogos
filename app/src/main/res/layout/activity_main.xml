@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:title="">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,6 +36,7 @@
                     android:layout_width="40dp"
                     android:layout_height="20dp"
                     android:text="@string/risk_circle"
+                    android:textAlignment="center"
                     android:textColor="@color/white"/>
 
             </LinearLayout>

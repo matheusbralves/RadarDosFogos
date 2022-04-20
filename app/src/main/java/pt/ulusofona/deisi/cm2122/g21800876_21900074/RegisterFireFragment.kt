@@ -15,7 +15,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentRegisterFireBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -30,19 +29,19 @@ private var imageUri: Uri? = null
 class RegisterFireFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Registrar Fogo"
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.registrar_fogo)
 
         val view = inflater.inflate(
             R.layout.fragment_register_fire, container, false
         )
         binding = FragmentRegisterFireBinding.bind(view)
-        model = FireModel()
+        model = FireModel
         return binding.root
     }
 
     override fun onStart(){
         super.onStart()
-        Log.i(TAG, "Tela registrar fogo")
+        //Log.i(TAG, "Tela registrar fogo")
 
         binding.sendButton.setOnClickListener{ saveRegistro() }
         binding.fotoInput.setOnClickListener{ savePhoto() }
@@ -96,21 +95,21 @@ class RegisterFireFragment : Fragment() {
 
     private fun saveRegistro(){
         val name = binding.nomeInput.text.toString()
-        Log.i(TAG, "Name == $name")
+        //Log.i(TAG, "Name == $name")
         val numberCC = binding.numeroccInput.text.toString()
-        Log.i(TAG, "NumberCC == $numberCC")
+        //Log.i(TAG, "NumberCC == $numberCC")
         val distric = binding.spinner.selectedItem.toString()
-        Log.i(TAG, "Distrito == $distric")
+        //Log.i(TAG, "Distrito == $distric")
         val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
-        Log.i(TAG, "Data == $date")
+        //Log.i(TAG, "Data == $date")
         val hour = SimpleDateFormat("HH", Locale.getDefault()).format(Date())
-        Log.i(TAG, "Hora == $hour")
+        //Log.i(TAG, "Hora == $hour")
         //Depende do que vai ter na classe de Incendio
         val photo = binding.fotoInput.drawable.toBitmap()
-        Log.i(TAG, "Image == $photo")
+        //Log.i(TAG, "Image == $photo")
 
         if(validateAll(name, numberCC)){
-            Log.i(TAG, "Salvar na lista")
+            //Log.i(TAG, "Salvar na lista")
             model.addRegistro(name, numberCC, distric, date, hour)
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()

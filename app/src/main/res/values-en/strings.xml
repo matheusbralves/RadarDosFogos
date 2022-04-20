@@ -1,0 +1,55 @@
+<resources>
+    <!-- Strings do Android -->
+    <string name="app_name">Home</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Strings do Drawer Menu -->
+    <string name="drawer_open">Open</string>
+    <string name="inicio">Home</string>
+    <string name="lista_de_fogos">List of Fires</string>
+    <string name="mapa_de_fogos">Map of Fires</string>
+    <string name="registrar_fogo">Register Fire</string>
+    <string name="meus_registros">My Registries</string>
+    <string name="configuracoes">Configurations</string>
+    <string name="drawer_close">Close</string>
+    <string name="risk_circle">Risk</string>
+
+    <!-- Strings do Registrar Fogo -->
+    <string name="nome">Name:</string>
+    <string name="numero_cc">Citizen Card Number:</string>
+    <string name="distrito">District:</string>
+    <string name="foto">Photo:</string>
+    <string name="enviar_foto">Send Photo</string>
+    <string name="botao_enviar">Send</string>
+    <string-array name="district_array">
+        <item>Aveiro</item>
+        <item>Beja</item>
+        <item>Braga</item>
+        <item>Bragança</item>
+        <item>Castelo Branco</item>
+        <item>Coimbra</item>
+        <item>Évora</item>
+        <item>Faro</item>
+        <item>Guarda</item>
+        <item>Leiria</item>
+        <item>Lisboa</item>
+        <item>Portalegre</item>
+        <item>Porto</item>
+        <item>Santarém</item>
+        <item>Setúbal</item>
+        <item>Viana do Castelo</item>
+        <item>Vila Real</item>
+        <item>Viseu</item>
+    </string-array>
+
+    <!-- Strings da Dashboard -->
+    <string name="perigo"><b>Are you in danger?</b></string>
+    <string name="chamar_ajuda"><b>CALL HELP</b></string>
+    <string name="fogos_radius"><b>Fires</b></string>
+    <string-array name="radius_array">
+        <item>25 KM</item>
+        <item>35 KM</item>
+        <item>50 KM</item>
+    </string-array>
+
+</resources>

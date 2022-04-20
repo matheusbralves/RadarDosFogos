@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 
 class FireViewModel : ViewModel() {
 
-    private val model = FireModel()
+    private val model = FireModel
 
     fun onSendRegistro(){
 

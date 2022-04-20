@@ -12,10 +12,6 @@ import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.ActivityMainBind
 private lateinit var binding: ActivityMainBinding
 private val TAG = MainActivity::class.java.simpleName
 
-//Variáveis para passar entre ecrãs tem que estar nessa activity
-val radiusListMain = arrayListOf<String>()
-val myRegisterList = arrayListOf<String>()
-
 class MainActivity : AppCompatActivity() {
 
     val handler = Handler(Looper.getMainLooper())
@@ -75,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                 NavigationManager.goToDashboardFragment(
                     supportFragmentManager
                 )
+
             R.id.nav_registrar ->
                 NavigationManager.goToRegisterFireFragment(
                     supportFragmentManager

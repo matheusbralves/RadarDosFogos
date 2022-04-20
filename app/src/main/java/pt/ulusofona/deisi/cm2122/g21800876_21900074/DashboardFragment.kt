@@ -1,5 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,29 +11,20 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboardBinding
 
-
-private const val ARG_RADIUSLIST = "param1"
 private lateinit var binding: FragmentDashboardBinding
 private val TAG = MainActivity::class.java.simpleName
 
 class DashboardFragment : Fragment() {
-    //Lista de fogos dentro de um certo raio
-    //Passar a lista dentro da main activity dentro dos ()
-    private var radiusList = ArrayList(radiusListMain)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            radiusList = it.getStringArrayList(ARG_RADIUSLIST)!!//Confirmar se ta funcionando isso
-        }
-
-        //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Início"
-    }
+    private var model: FireModel = FireModel
+    private val adapter = FireListAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.inicio)
+
         val view = inflater.inflate(
             R.layout.fragment_dashboard, container, false
         )
@@ -42,9 +34,11 @@ class DashboardFragment : Fragment() {
 
     override fun onStart(){
         super.onStart()
-        Log.i(TAG, "Tela dashboard")
-
+        //Log.i(TAG, "Tela dashboard")
         radiusSpinnerSetup()
+        binding.radiusList.layoutManager = LinearLayoutManager(activity as Context)
+        binding.radiusList.adapter = adapter
+        adapter.updateItems(model.getAllRegistros())
     }
 
     private fun radiusSpinnerSetup(){
@@ -68,15 +62,6 @@ class DashboardFragment : Fragment() {
 
     private fun radiusSelect(){
         val selected = binding.spinner.selectedItem
-        Log.i(TAG, "Item é == $selected")
-    }
-
-    companion object {
-        @JvmStatic fun newInstance(radiusList: ArrayList<String>) : DashboardFragment =
-            DashboardFragment().apply {
-                arguments = Bundle().apply {
-                    putStringArrayList(ARG_RADIUSLIST, radiusList)
-                }
-            }
+        //Log.i(TAG, "Item é == $selected")
     }
 }
