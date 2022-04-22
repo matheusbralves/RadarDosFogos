@@ -1,7 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
-import android.graphics.Bitmap
-import android.util.Log
+import android.net.Uri
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -10,16 +9,37 @@ import kotlinx.coroutines.launch
 
 object FireModel {
 
-    private val registros = arrayListOf(
-        Fire("turminha do siri", "12345678", "Setubal","12323", "1234"),
-        Fire("hdhasodkhaso", "12345678", "Setubal","12323", "1234"),
-        Fire("teste", "12345678", "Setubal","12323", "1234")
+    private val registros = mutableListOf(
+        FireParcelable("test 1", "11111111", "Setubal","", "",
+        "22/04/2022", "14:15", "Em curso", Uri.parse(R.drawable.sem_foto.toString())),
+
+        FireParcelable("test 2", "22222222", "Lisboa","", "",
+        "22/04/2022", "12:10", "Terminado", Uri.parse(R.drawable.sem_foto.toString())),
+
+        FireParcelable("test 3", "33333333", "Setubal","", "",
+        "22/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString())),
     )
 
-    fun addRegistro(nome : String, numeroCC : String, distrito : String, data : String,
-    hora : String) { registros.add(Fire(nome, numeroCC, distrito, data, hora)) }
+    fun addRegistro(nome : String,
+                    numeroCC : String,
+                    distrito : String,
+                    conselho : String,
+                    frequesia : String,
+                    data : String,
+                    hora : String,
+                    status : String,
+                    foto : Uri?
+    )
 
-    fun getAllRegistros(onFinished : (List<Fire>) -> Unit) {
+    {
+        foto?.let {
+            FireParcelable(nome, numeroCC, distrito, conselho, frequesia, data, hora, status,
+                it
+            )
+        }?.let { registros.add(it) }
+    }
+
+    fun getAllRegistros(onFinished: (List<FireParcelable>) -> Unit) {
         CoroutineScope(Dispatchers.IO).launch {
             onFinished(registros)
         }

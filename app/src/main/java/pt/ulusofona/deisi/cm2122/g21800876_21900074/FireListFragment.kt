@@ -19,7 +19,7 @@ private val TAG = MainActivity::class.java.simpleName
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
-    private val adapter = FireListAdapter()
+    private val adapter = FireListAdapter(onClick = ::onItemClick)
 
     override fun onStart() {
         super.onStart()
@@ -32,10 +32,14 @@ class FireListFragment : Fragment() {
         viewModel.onGetListDisplay { updateList(it) }
     }
 
-    private fun updateList(fireList : List<Fire>){
+    private fun updateList(fireList : List<FireParcelable>){
         CoroutineScope(Dispatchers.Main).launch {
             adapter.updateItems(fireList)
         }
+    }
+
+    private fun onItemClick(operation: FireParcelable) {
+        NavigationManager.goToDetaisFragment(parentFragmentManager, operation)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

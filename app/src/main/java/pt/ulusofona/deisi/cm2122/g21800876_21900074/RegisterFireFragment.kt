@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentRegisterFireBinding
 import java.text.SimpleDateFormat
@@ -102,15 +101,15 @@ class RegisterFireFragment : Fragment() {
         //Log.i(TAG, "Distrito == $distric")
         val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
         //Log.i(TAG, "Data == $date")
-        val hour = SimpleDateFormat("HH", Locale.getDefault()).format(Date())
+        val hour = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
         //Log.i(TAG, "Hora == $hour")
-        //Depende do que vai ter na classe de Incendio
-        val photo = binding.fotoInput.drawable.toBitmap()
+        val photo = imageUri
         //Log.i(TAG, "Image == $photo")
 
         if(validateAll(name, numberCC)){
             //Log.i(TAG, "Salvar na lista")
-            model.addRegistro(name, numberCC, distric, date, hour)
+            model.addRegistro(name, numberCC, distric,"","", date, hour,
+                "Por confirmar", photo)
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()
