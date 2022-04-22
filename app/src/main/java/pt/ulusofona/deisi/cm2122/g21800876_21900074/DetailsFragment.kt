@@ -34,7 +34,11 @@ class DetailsFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         fire?.let{
-            binding.distrito.text = it.distrito
+            binding.distrito.text = "Distrito: ${it.distrito}"
+            binding.conselho.text = "Conselho: ${it.conselho}"
+            binding.freguesia.text = "Freguesia: ${it.frequesia}"
+            binding.data.text = "Data: ${it.data}"
+            binding.hora.text = "Hora: ${it.hora}"
         }
     }
 

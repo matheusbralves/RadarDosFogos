@@ -11,7 +11,7 @@
     >
 
     <TextView
-        android:id="@+id/fire_distrito"
+        android:id="@+id/fire_local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
@@ -24,13 +24,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/fire_estado"
+            android:id="@+id/fire_status"
             android:layout_width="171dp"
             android:layout_height="match_parent"
             android:background="@drawable/fire_state"
             android:gravity="center_vertical|start"
             android:includeFontPadding="false"
-            android:text="EM CURSO"
             android:textSize="16sp"
             android:textAlignment="center"/>
 
@@ -46,14 +45,16 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/fire_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="16/1/2022"/>
+                />
 
             <TextView
+                android:id="@+id/fire_hora"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="22:50"/>
+                />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

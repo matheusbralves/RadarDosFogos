@@ -25,7 +25,11 @@ class FireListAdapter (
 
     override fun onBindViewHolder(holder: FireListViewHolder, position: Int) {
         //Log.i(TAG, "${items[position].nome} TESTE")
-        holder.binding.fireDistrito.text = items[position].distrito
+        holder.binding.fireLocal.text = "${items[position].distrito} / ${items[position].conselho} / ${items[position].frequesia}"
+        holder.binding.fireStatus.text = items[position].status
+        holder.binding.fireData.text = items[position].data
+        holder.binding.fireHora.text = items[position].hora
+
         holder.binding.itemFire.setOnClickListener{ onClick(items[position]) }
     }
 

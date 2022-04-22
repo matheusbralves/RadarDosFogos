@@ -10,14 +10,16 @@ import kotlinx.coroutines.launch
 object FireModel {
 
     private val registros = mutableListOf(
-        FireParcelable("test 1", "11111111", "Setubal","", "",
+        FireParcelable("test 1", "11111111", "Setubal","Barreiro", "Lavradio",
         "22/04/2022", "14:15", "Em curso", Uri.parse(R.drawable.sem_foto.toString())),
 
-        FireParcelable("test 2", "22222222", "Lisboa","", "",
-        "22/04/2022", "12:10", "Terminado", Uri.parse(R.drawable.sem_foto.toString())),
+        FireParcelable("test 2", "22222222", "Lisboa","Lumiar", "Lumiar",
+        "24/04/2022", "12:10", "Terminado", Uri.parse(R.drawable.sem_foto.toString())),
 
-        FireParcelable("test 3", "33333333", "Setubal","", "",
-        "22/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString())),
+        FireParcelable("test 3", "33333333", "Setubal","Moita", "Ronda",
+        "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString())),
+
+
     )
 
     fun addRegistro(nome : String,
