@@ -23,7 +23,7 @@ class FireListAdapter (private var items: List<Fire> = listOf()) : RecyclerView.
     override fun onBindViewHolder(holder: FireListViewHolder, position: Int) {
         //Log.i(TAG, "${items[position].nome} TESTE")
         holder.binding.fireDistrito.text = items[position].distrito
-        holder.binding.fireHora.text = items[position].hora
+        //holder.binding.fireHora.text = items[position].hora
     }
 
     override fun getItemCount() = items.size
