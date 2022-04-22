@@ -57,4 +57,7 @@
 
     <!-- String detalhe -->
     <string name="detalhe">Fire Detail</string>
+    <!-- Strings do Mapa de Fogos -->
+    <string name="btn_lista"><b>List of Fires</b></string>
+
 </resources>

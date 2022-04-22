@@ -96,6 +96,11 @@ class MainActivity : AppCompatActivity() {
                 NavigationManager.goToFireListFragment(
                     supportFragmentManager
                 )
+
+            R.id.nav_mapa ->
+                NavigationManager.goToFireMapFragment(
+                    supportFragmentManager
+                )
         }
         binding.drawer.closeDrawer(GravityCompat.START)
         return true
