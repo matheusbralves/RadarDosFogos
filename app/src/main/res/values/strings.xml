@@ -55,4 +55,7 @@
 
     <!-- Strings da Lista de Fogos -->
     <string name="btn_mapa"><b>Mapa de Fogos</b></string>
+
+    <!-- Strings do Mapa de Fogos -->
+    <string name="btn_lista"><b>Lista de Fogos</b></string>
 </resources>

@@ -24,4 +24,8 @@ object NavigationManager{
     fun goToFireListFragment(fm: FragmentManager) {
         placeFragment(fm, FireListFragment())
     }
+
+    fun goToFireMapFragment(fm: FragmentManager) {
+        placeFragment(fm, FireMapFragment())
+    }
 }
