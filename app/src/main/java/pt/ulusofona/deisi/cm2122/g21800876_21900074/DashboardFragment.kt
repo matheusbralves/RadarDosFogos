@@ -23,7 +23,7 @@ private val TAG = MainActivity::class.java.simpleName
 
 class DashboardFragment : Fragment() {
     private lateinit var viewModel : FireViewModel
-    private val adapter = FireListAdapter()
+    private val adapter = FireListAdapter(onClick = ::onItemClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
@@ -46,7 +46,11 @@ class DashboardFragment : Fragment() {
         viewModel.onGetListDisplay { updateList(it) }
     }
 
-    private fun updateList(fireList : List<Fire>){
+    private fun onItemClick(operation: FireParcelable) {
+        NavigationManager.goToDetaisFragment(parentFragmentManager, operation)
+    }
+
+    private fun updateList(fireList : List<FireParcelable>){
         CoroutineScope(Dispatchers.Main).launch {
             adapter.updateItems(fireList)
         }

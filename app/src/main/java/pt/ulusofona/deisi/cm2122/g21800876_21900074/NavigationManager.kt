@@ -24,4 +24,8 @@ object NavigationManager{
     fun goToFireListFragment(fm: FragmentManager) {
         placeFragment(fm, FireListFragment())
     }
+
+    fun goToDetaisFragment(fm: FragmentManager, operation: FireParcelable) {
+        placeFragment(fm, DetailsFragment.newInstance(operation))
+    }
 }

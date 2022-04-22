@@ -6,7 +6,7 @@ class FireViewModel : ViewModel() {
 
     private val model = FireModel
 
-    fun onGetListDisplay(onFinished: (List<Fire>) -> Unit){
+    fun onGetListDisplay(onFinished: (List<FireParcelable>) -> Unit){
         model.getAllRegistros(onFinished)
     }
 
