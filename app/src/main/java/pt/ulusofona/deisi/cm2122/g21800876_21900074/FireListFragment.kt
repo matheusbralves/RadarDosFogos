@@ -25,6 +25,10 @@ class FireListFragment : Fragment() {
         super.onStart()
         binding.rvList.layoutManager = LinearLayoutManager(activity as Context)
         binding.rvList.adapter = adapter
+        binding.mapBtn.setOnClickListener{ activity?.let { it1 ->
+            NavigationManager.goToFireMapFragment(
+                it1.supportFragmentManager)
+        } }
         viewModel.onGetListDisplay { updateList(it) }
     }
 

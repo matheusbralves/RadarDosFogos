@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
+import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireMapBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,6 +18,9 @@ private const val ARG_PARAM2 = "param2"
  * Use the [FireMapFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+private lateinit var binding : FragmentFireMapBinding
+
 class FireMapFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -27,14 +32,31 @@ class FireMapFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
+        val view = inflater.inflate(
+            R.layout.fragment_fire_map, container, false
+        )
+
+        binding = FragmentFireMapBinding.bind(view)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fire_map, container, false)
+        return  binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        binding.listBtn.setOnClickListener{ activity?.let { it1 ->
+            NavigationManager.goToFireListFragment(
+                it1.supportFragmentManager)
+        } }
     }
 
     companion object {
