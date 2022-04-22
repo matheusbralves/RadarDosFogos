@@ -4,11 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".FireListFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginVertical="10dp"
+        android:text="@string/mapa_de_fogos"
+        android:drawableLeft="@drawable/ic_location"
+        android:textColor="@color/black"
+        android:background="@drawable/map_or_list_btn"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

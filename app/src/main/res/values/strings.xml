@@ -52,4 +52,7 @@
         <item>50 KM</item>
     </string-array>
 
+
+    <!-- Strings da Lista de Fogos -->
+    <string name="btn_mapa"><b>Mapa de Fogos</b></string>
 </resources>
