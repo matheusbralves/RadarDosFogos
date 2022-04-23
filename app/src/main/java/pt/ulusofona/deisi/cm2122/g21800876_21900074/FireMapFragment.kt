@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireMapBinding
 
@@ -39,6 +40,9 @@ class FireMapFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.mapa_de_fogos)
 
         val view = inflater.inflate(
             R.layout.fragment_fire_map, container, false

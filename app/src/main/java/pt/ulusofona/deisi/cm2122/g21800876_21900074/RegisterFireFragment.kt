@@ -1,6 +1,7 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.app.Activity.RESULT_OK
+import android.content.ContentResolver
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -98,8 +99,17 @@ class RegisterFireFragment : Fragment() {
         return if(selectedPhoto){
             imageUri
         }else{
-            Uri.parse(R.drawable.sem_foto.toString())
+            generateUri(R.drawable.sem_foto)
         }
+    }
+
+    private fun generateUri(draw : Int) : Uri? {
+        return Uri.Builder()
+            .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+            .authority(resources.getResourcePackageName(draw))
+            .appendPath(resources.getResourceTypeName(draw))
+            .appendPath(resources.getResourceEntryName(draw))
+            .build()
     }
 
     private fun saveRegistro(){
@@ -124,7 +134,8 @@ class RegisterFireFragment : Fragment() {
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()
-            binding.fotoInput.setImageResource(R.drawable.foto_input)
+            binding.fotoInput.setImageURI(generateUri(R.drawable.foto_input))
+            selectedPhoto = false
         }
     }
 }
