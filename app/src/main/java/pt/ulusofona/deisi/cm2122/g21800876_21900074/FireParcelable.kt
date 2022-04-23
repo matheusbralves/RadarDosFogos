@@ -14,5 +14,9 @@ data class FireParcelable(
     var data: String,
     var hora: String,
     var status: String,
-    var foto: Uri
+    var foto: Uri?,
+    var distancia : String,
+    var operationals : String,
+    var vehicles : String,
+    var planes : String
 ) : Parcelable

@@ -30,7 +30,7 @@
                 android:paddingBottom="15dp"/>
 
             <Button
-                android:id="@+id/send_button"
+                android:id="@+id/call_help"
                 android:layout_width="200dp"
                 android:layout_height="55dp"
                 android:text="@string/chamar_ajuda"

@@ -34,11 +34,14 @@ class DetailsFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         fire?.let{
-            binding.distrito.text = "Distrito: ${it.distrito}"
-            binding.conselho.text = "Conselho: ${it.conselho}"
-            binding.freguesia.text = "Freguesia: ${it.frequesia}"
-            binding.data.text = "Data: ${it.data}"
-            binding.hora.text = "Hora: ${it.hora}"
+            binding.localFire.text = "${it.distrito} / " + "${it.conselho} / " + "${it.frequesia}"
+            binding.fotoFire.setImageURI(it.foto)
+            binding.aereosNumero.text = it.planes
+            binding.operacionaisNumero.text = it.operationals
+            binding.veiculosNumero.text = it.vehicles
+            binding.dataFire.text = it.data
+            binding.horaFire.text = it.hora
+            binding.estado.text = it.status
         }
     }
 

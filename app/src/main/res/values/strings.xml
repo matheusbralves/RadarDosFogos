@@ -1,6 +1,6 @@
 <resources>
     <!-- Strings do Android -->
-    <string name="app_name">Inicio</string>
+    <string name="app_name">Radar dos Fogos</string>
     <string name="title_activity_main">MainActivity</string>
 
     <!-- Strings do Drawer Menu -->
@@ -61,4 +61,14 @@
 
     <!-- Strings do Mapa de Fogos -->
     <string name="btn_lista"><b>Lista de Fogos</b></string>
+
+    <!-- String do Detalhe do Fogo -->
+    <string name="foto_detalhe"><b>Foto do Fogo</b></string>
+    <string name="aereos"><b>Aéreos</b></string>
+    <string name="operacionais"><b>Operacionais</b></string>
+    <string name="veiculos"><b>Veículos</b></string>
+    <string name="data"><b>Data</b></string>
+    <string name="hora"><b>Hora</b></string>
+    <string name="estado"><b>Estado: </b></string>
+    <string name="obs"><b>Observações: </b></string>
 </resources>

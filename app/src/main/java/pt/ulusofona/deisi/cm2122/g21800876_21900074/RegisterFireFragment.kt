@@ -24,6 +24,7 @@ private val TAG = MainActivity::class.java.simpleName
 
 const val PICK_IMAGE = 1
 private var imageUri: Uri? = null
+private var selectedPhoto = false
 
 class RegisterFireFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -89,6 +90,15 @@ class RegisterFireFragment : Fragment() {
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
             imageUri = data?.data
             binding.fotoInput.setImageURI(imageUri)
+            selectedPhoto = true
+        }
+    }
+
+    private fun opitionalPhoto() : Uri? {
+        return if(selectedPhoto){
+            imageUri
+        }else{
+            Uri.parse(R.drawable.sem_foto.toString())
         }
     }
 
@@ -103,13 +113,14 @@ class RegisterFireFragment : Fragment() {
         //Log.i(TAG, "Data == $date")
         val hour = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
         //Log.i(TAG, "Hora == $hour")
-        val photo = imageUri
+        val photo = opitionalPhoto()
         //Log.i(TAG, "Image == $photo")
 
         if(validateAll(name, numberCC)){
-            //Log.i(TAG, "Salvar na lista")
+            Log.i(TAG, "${model.registros.size}")
             model.addRegistro(name, numberCC, distric,"","", date, hour,
-                "Por confirmar", photo)
+                "Por confirmar", photo, "", "", "", "")
+            Log.i(TAG, "${model.registros.size}")
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()

@@ -10,4 +10,16 @@ class FireViewModel : ViewModel() {
         model.getAllRegistros(onFinished)
     }
 
+    fun getDashboardRegistros25(onFinished: (List<FireParcelable>) -> Unit){
+        model.getDashboardRegistros25(onFinished)
+    }
+
+    fun getDashboardRegistros35(onFinished: (List<FireParcelable>) -> Unit){
+        model.getDashboardRegistros35(onFinished)
+    }
+
+    fun getDashboardRegistros50(onFinished: (List<FireParcelable>) -> Unit){
+        model.getDashboardRegistros50(onFinished)
+    }
+
 }

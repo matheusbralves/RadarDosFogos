@@ -1,6 +1,8 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -43,7 +45,8 @@ class DashboardFragment : Fragment() {
         radiusSpinnerSetup()
         binding.radiusList.layoutManager = LinearLayoutManager(activity as Context)
         binding.radiusList.adapter = adapter
-        viewModel.onGetListDisplay { updateList(it) }
+        binding.callHelp.setOnClickListener{ callHelp() }
+        viewModel.getDashboardRegistros25 { updateList(it) }
     }
 
     private fun onItemClick(operation: FireParcelable) {
@@ -76,7 +79,26 @@ class DashboardFragment : Fragment() {
     }
 
     private fun radiusSelect(){
-        val selected = binding.spinner.selectedItem
-        //Log.i(TAG, "Item é == $selected")
+        when (binding.spinner.selectedItem.toString()) {
+            "25 KM" -> {
+                viewModel.getDashboardRegistros25 { updateList(it) }
+            }
+
+            "35 KM" -> {
+                viewModel.getDashboardRegistros35 { updateList(it) }
+            }
+
+            "50 KM" -> {
+                viewModel.getDashboardRegistros50 { updateList(it) }
+            }
+
+            else -> print("nada")
+        }
+    }
+
+    private fun callHelp(){
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:112")
+        startActivity(intent)
     }
 }
