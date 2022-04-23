@@ -29,7 +29,8 @@ class FireListFragment : Fragment() {
             NavigationManager.goToFireMapFragment(
                 it1.supportFragmentManager)
         } }
-        binding.fogosActivosCount.text = viewModel.getActiveFire().size.toString();
+        //binding.fogosActivosCount.text = viewModel.getActiveFire().size.toString()
+        binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
         viewModel.onGetListDisplay { updateList(it) }
     }
 

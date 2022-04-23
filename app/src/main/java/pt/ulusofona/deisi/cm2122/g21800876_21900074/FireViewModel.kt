@@ -26,4 +26,8 @@ class FireViewModel : ViewModel() {
         return model.getActiveFires()
     }
 
+    fun getDistrictWithMostFires() : String {
+        return model.getDistrictWithMostFires()
+    }
+
 }

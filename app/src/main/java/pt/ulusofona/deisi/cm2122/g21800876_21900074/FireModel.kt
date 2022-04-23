@@ -29,6 +29,22 @@ object FireModel {
         FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
             "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
             "5", "5", "5"),
+
+        FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "5", "5", "5"),
+
+        FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "5", "5", "5"),
+
+        FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "5", "5", "5"),
+
+        FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "5", "5", "5"),
     )
 
     private val list25 = mutableListOf(
@@ -126,6 +142,52 @@ object FireModel {
         }
 
         return firesInRange
+    }
+
+    fun getDistrictWithMostFires() : String {
+        var firesByDistrict : MutableMap<String, Int> = mutableMapOf<String,Int>()
+        var districtWithMostFiresName = "Distrito"
+        var districtWithMostFiresValue = 0
+
+        for (f in registros) {
+            if(firesByDistrict.containsKey(f.distrito)) {
+                firesByDistrict.put(f.distrito, firesByDistrict.getValue(f.distrito) + 1)
+            } else {
+                firesByDistrict.put(f.distrito, 1)
+            }
+        }
+
+        for(key in firesByDistrict.keys) {
+            if(firesByDistrict[key]!! > districtWithMostFiresValue) {
+                districtWithMostFiresName = key
+                districtWithMostFiresValue = firesByDistrict[key]!!
+            }
+        }
+
+        return districtWithMostFiresName
+    }
+
+    fun getDistrictWithMostActiveFires() : String {
+        var firesByDistrict : MutableMap<String, Int> = mutableMapOf<String,Int>()
+        var districtWithMostFiresName = "Distrito"
+        var districtWithMostFiresValue = 0
+
+        for (f in registros) {
+            if(firesByDistrict.containsKey(f.distrito) && f.status == "Em curso") {
+                firesByDistrict.put(f.distrito, firesByDistrict.getValue(f.distrito) + 1)
+            } else {
+                firesByDistrict.put(f.distrito, 1)
+            }
+        }
+
+        for(key in firesByDistrict.keys) {
+            if(firesByDistrict[key]!! > districtWithMostFiresValue) {
+                districtWithMostFiresName = key
+                districtWithMostFiresValue = firesByDistrict[key]!!
+            }
+        }
+
+        return districtWithMostFiresName
     }
 
 }
