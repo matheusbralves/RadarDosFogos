@@ -26,7 +26,11 @@ class FireListAdapter (
     override fun onBindViewHolder(holder: FireListViewHolder, position: Int) {
         //Log.i(TAG, "${items[position].nome} TESTE")
         holder.binding.fireLocal.text = "${items[position].distrito} / ${items[position].conselho} / ${items[position].frequesia}"
-        holder.binding.fireStatus.text = items[position].status
+        when(items[position].status) {
+            "Em curso" -> holder.binding.fireStatus.text = holder.itemView.resources.getString(R.string.status_em_curso)
+            "Terminado" -> holder.binding.fireStatus.text = holder.itemView.resources.getString(R.string.status_terminado)
+            "Por confirmar" -> holder.binding.fireStatus.text = holder.itemView.resources.getString(R.string.status_por_confirmar)
+        }
         holder.binding.fireData.text = items[position].data
         holder.binding.fireHora.text = items[position].hora
 

@@ -43,7 +43,12 @@ class DetailsFragment : Fragment() {
             binding.veiculosNumero.text = it.vehicles
             binding.dataFire.text = it.data
             binding.horaFire.text = it.hora
-            binding.estado.text = it.status
+            //binding.estado.text = it.status
+            when(it.status) {
+                "Em curso" -> binding.estado.text = resources.getString(R.string.status_em_curso)
+                "Terminado" -> binding.estado.text = resources.getString(R.string.status_terminado)
+                "Por confirmar" -> binding.estado.text = resources.getString(R.string.status_por_confirmar)
+            }
         }
     }
 

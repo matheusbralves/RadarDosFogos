@@ -57,6 +57,9 @@
     <string name="btn_mapa"><b>Mapa de Fogos</b></string>
     <string name="fogos_ativos">Fogos Ativos:</string>
 
+    <string name="status_em_curso">Em Curso</string>
+    <string name="status_terminado">Terminado</string>
+    <string name="status_por_confirmar">Por Confirmar</string>
     <!-- String Detalhes -->
     <string name="detalhe">Detalhe do Fogo</string>
 
