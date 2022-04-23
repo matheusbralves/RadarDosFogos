@@ -3,11 +3,11 @@
 
 Screenshots:
 
-<img width="33%" height="250em" src="Screenshots/Dashboard.jpg"/>
+<img width="33%" height="500em" src="Screenshots/Dashboard.jpg"/>
 
-<img width="33%" height="250em" src="Screenshots/Mapa.jpg"/>
+<img width="33%" height="500em" src="Screenshots/Mapa.jpg"/>
 
-<img width="33%" height="250em" src="Screenshots/Registro.jpg"/>
+<img width="33%" height="500em" src="Screenshots/Registro.jpg"/>
 
 | Descrição | Implementado? |
 | ------ | ----------- |
