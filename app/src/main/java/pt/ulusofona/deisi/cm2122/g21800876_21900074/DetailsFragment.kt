@@ -1,5 +1,7 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
+import android.content.ContentResolver
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,7 +37,7 @@ class DetailsFragment : Fragment() {
         super.onStart()
         fire?.let{
             binding.localFire.text = "${it.distrito} / " + "${it.conselho} / " + "${it.frequesia}"
-            binding.fotoFire.setImageURI(it.foto)
+            binding.fotoFire.setImageURI(it.foto?.let { it1 -> setImage(it1) })
             binding.aereosNumero.text = it.planes
             binding.operacionaisNumero.text = it.operationals
             binding.veiculosNumero.text = it.vehicles
@@ -43,6 +45,23 @@ class DetailsFragment : Fragment() {
             binding.horaFire.text = it.hora
             binding.estado.text = it.status
         }
+    }
+
+    private fun setImage(foto : Uri) : Uri? {
+        return if(foto.toString() == "2131230896"){
+            generateUri(R.drawable.sem_foto)
+        }else{
+            foto
+        }
+    }
+
+    private fun generateUri(draw : Int) : Uri? {
+        return Uri.Builder()
+            .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+            .authority(resources.getResourcePackageName(draw))
+            .appendPath(resources.getResourceTypeName(draw))
+            .appendPath(resources.getResourceEntryName(draw))
+            .build()
     }
 
     companion object {
