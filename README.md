@@ -1,13 +1,13 @@
-João Novaes Barreiros a21900074
-Matheus Barcelos Rodrigues Alves a21800876
++ João Novaes Barreiros a21900074
++ Matheus Barcelos Rodrigues Alves a21800876
 
 Screenshots:
 
-![Alt text](Screenshots/Dashboard.jpg?raw=true "Dashboard")
+<img width="33%" height="250em" src="Screenshots/Dashboard.jpg"/>
 
-![Alt text](Screenshots/Mapa.jpg?raw=true "Mapa")
+<img width="33%" height="250em" src="Screenshots/Mapa.jpg"/>
 
-![Alt text](Screenshots/Registro.jpg?raw=true "Registro")
+<img width="33%" height="250em" src="Screenshots/Registro.jpg"/>
 
 | Descrição | Implementado? |
 | ------ | ----------- |
@@ -25,7 +25,7 @@ Screenshots:
 Autoavaliação =
 
 Descrição do Ecrã Extra:
-Este ecrã terá informações sobre estatíscas variadas dos incêndios,
+Este ecrã terá informações sobre estatíscas variadas dos incêndios, \
 neste entrega temos as seguintes estatíscas:
 
 + Fogos ativos
