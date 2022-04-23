@@ -54,6 +54,7 @@
 
     <!-- Strings da Lista de Fogos -->
     <string name="btn_mapa"><b>Fire Map</b></string>
+    <string name="fogos_ativos">Active Fires:</string>
 
     <!-- String detalhe -->
     <string name="detalhe">Fire Detail</string>

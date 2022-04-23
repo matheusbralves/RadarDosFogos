@@ -22,4 +22,8 @@ class FireViewModel : ViewModel() {
         model.getDashboardRegistros50(onFinished)
     }
 
+    fun getActiveFire() : List<FireParcelable> {
+        return model.getActiveFires()
+    }
+
 }

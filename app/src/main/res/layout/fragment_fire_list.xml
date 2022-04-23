@@ -18,6 +18,24 @@
         android:textColor="@color/black"
         android:background="@drawable/map_or_list_btn"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fogos_ativos"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/fogos_activos_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

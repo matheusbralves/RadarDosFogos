@@ -103,4 +103,29 @@ object FireModel {
             onFinished(list50)
         }
     }
+
+    fun getActiveFires() : List<FireParcelable>{
+        var activeFires = listOf<FireParcelable>()
+
+        for (f in registros) {
+            if (f.status == "Em curso") {
+                activeFires = activeFires + f
+            }
+        }
+
+        return activeFires
+    }
+
+    fun getFiresInRange(range : Int) : List<FireParcelable>{
+        var firesInRange = listOf<FireParcelable>()
+
+        for (f in registros) {
+            if (f.status == "Em curso") {
+                firesInRange = firesInRange + f
+            }
+        }
+
+        return firesInRange
+    }
+
 }
