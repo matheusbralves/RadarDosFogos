@@ -4,12 +4,12 @@
 Screenshots:
 
 <div align="center">
-    <img width="33%" height="550em" src="Screenshots/Dashboard.jpg"/>
-    <img width="33%" height="550em" src="Screenshots/Mapa.jpg"/>
+    <img width="50%" height="550em" src="Screenshots/Dashboard.jpg"/>
+    <img width="50%" height="550em" src="Screenshots/Mapa.jpg"/>
 </div>
 
 <div align="center">
-    <img width="33%" height="500em" src="Screenshots/Registro.jpg"/>
+    <img width="50%" height="500em" src="Screenshots/Registro.jpg"/>
 </div>
 
 | Descrição | Implementado? |
@@ -25,7 +25,7 @@ Screenshots:
 | Navegabilidade | Implementado |
 | Extra | Implementado |
 
-Autoavaliação =
+Autoavaliação = 19
 
 Descrição do Ecrã Extra:
 Este ecrã terá informações sobre estatíscas variadas dos incêndios, \
