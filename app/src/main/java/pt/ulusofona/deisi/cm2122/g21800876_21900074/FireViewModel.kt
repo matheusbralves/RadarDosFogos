@@ -30,4 +30,20 @@ class FireViewModel : ViewModel() {
         return model.getDistrictWithMostFires()
     }
 
+    fun getDistrictWithMostActiveFires() : String {
+        return model.getDistrictWithMostActiveFires()
+    }
+
+    fun getTotalOperationals(): Int {
+        return model.getTotalOperationals()
+    }
+
+    fun getTotalVehicles(): Int {
+        return model.getTotalVehicles()
+    }
+
+    fun getTotalPlanes(): Int {
+        return model.getTotalPlanes()
+    }
+
 }

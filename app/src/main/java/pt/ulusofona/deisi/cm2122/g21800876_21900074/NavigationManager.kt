@@ -32,4 +32,8 @@ object NavigationManager{
     fun goToFireMapFragment(fm: FragmentManager) {
         placeFragment(fm, FireMapFragment())
     }
+
+    fun goToFireStatistics(fm: FragmentManager) {
+        placeFragment(fm, FireStatistics())
+    }
 }

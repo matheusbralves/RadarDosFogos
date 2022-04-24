@@ -13,6 +13,7 @@
     <string name="configuracoes">Configurations</string>
     <string name="drawer_close">Close</string>
     <string name="risk_circle">Risk</string>
+    <string name="stats">Statistics</string>
 
     <!-- Strings do Registrar Fogo -->
     <string name="nome">Name:</string>
@@ -75,4 +76,12 @@
     <string name="hora"><b>Hour</b></string>
     <string name="estado"><b>Status: </b></string>
     <string name="obs"><b>Observations: </b></string>
+
+    <!-- String da Estatisticas -->
+    <string name="active_fire">Active Fires: </string>
+    <string name="distMTotalFire">District with most fires in total: </string>
+    <string name="distMActiveFire">District with most active fires: </string>
+    <string name="totalOperational">Operationals Total: </string>
+    <string name="totalVeiculos">Vehicle Total: </string>
+    <string name="totalPlanes">Planes Total: </string>
 </resources>

@@ -10,6 +10,7 @@
     <string name="mapa_de_fogos">Mapa de Fogos</string>
     <string name="registrar_fogo">Registrar Fogo</string>
     <string name="meus_registros">Meus Registros</string>
+    <string name="stats">Estatísticas</string>
     <string name="configuracoes">Configurações</string>
     <string name="drawer_close">Fechado</string>
     <string name="risk_circle">Risco</string>
@@ -75,4 +76,12 @@
     <string name="hora"><b>Hora</b></string>
     <string name="estado"><b>Estado: </b></string>
     <string name="obs"><b>Observações: </b></string>
+
+    <!-- String da Estatisticas -->
+    <string name="active_fire">Fogos Ativos: </string>
+    <string name="distMTotalFire">Distrito com mais fogos no total: </string>
+    <string name="distMActiveFire">Distrito com mais fogos ativos: </string>
+    <string name="totalOperational">Total de Operacionais: </string>
+    <string name="totalVeiculos">Total de Veiculos: </string>
+    <string name="totalPlanes">Total de Aviões: </string>
 </resources>
