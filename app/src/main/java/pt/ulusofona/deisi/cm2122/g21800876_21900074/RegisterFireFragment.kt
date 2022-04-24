@@ -129,7 +129,7 @@ class RegisterFireFragment : Fragment() {
         if(validateAll(name, numberCC)){
             Log.i(TAG, "${model.registros.size}")
             model.addRegistro(name, numberCC, distric,"","", date, hour,
-                "Por confirmar", photo, "", "", "", "")
+                "Por confirmar", photo, "", "0", "0", "0")
             Log.i(TAG, "${model.registros.size}")
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()

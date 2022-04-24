@@ -29,6 +29,18 @@ object FireModel {
         FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
             "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
             "5", "1", "0"),
+
+        FireParcelable("test 5", "55555555", "Sintra","Colares", "Cocaia",
+            "22/04/2022", "10:25", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "1", "1", "10"),
+
+        FireParcelable("test 5", "55555555", "Sintra","Terrugem", "Loren",
+            "22/04/2022", "10:25", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "1", "1", "5"),
+
+        FireParcelable("test 5", "55555555", "Sintra","Montelavar", "Loren",
+            "22/04/2022", "10:25", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "2", "1", "3"),
     )
 
     private val list25 = mutableListOf(

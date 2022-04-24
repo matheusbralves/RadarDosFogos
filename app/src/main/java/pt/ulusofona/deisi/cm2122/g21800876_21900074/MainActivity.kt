@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager
                 )
 
-            R.id.nav_config ->
+            R.id.nav_stats ->
                 NavigationManager.goToFireStatistics(
                     supportFragmentManager
                 )
