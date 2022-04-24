@@ -17,7 +17,6 @@ Screenshots:
     <img width="33%" height="500em" src="Screenshots/Registro.jpg"/>
 </div>
 
-<div align="center">
 | Descrição | Implementado? |
 | ------ | ----------- |
 | Dashboard | Implementado |
@@ -30,7 +29,6 @@ Screenshots:
 | Suporte multi-idioma | Implementado |
 | Navegabilidade | Implementado |
 | Extra | Implementado |
-</div>
 
 Autoavaliação = 19
 
