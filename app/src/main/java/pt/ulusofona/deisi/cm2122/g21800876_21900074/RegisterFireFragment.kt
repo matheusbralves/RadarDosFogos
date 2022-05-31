@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentRegisterFireBinding
 import java.text.SimpleDateFormat
 import java.util.*
+import android.app.Application
 
 private lateinit var binding : FragmentRegisterFireBinding
 private lateinit var model : FireModel
@@ -36,7 +37,7 @@ class RegisterFireFragment : Fragment() {
             R.layout.fragment_register_fire, container, false
         )
         binding = FragmentRegisterFireBinding.bind(view)
-        model = FireModel
+        model = FireModel(FireDatabase.getInstance(requireContext()).fireDao())
         return binding.root
     }
 
@@ -127,10 +128,10 @@ class RegisterFireFragment : Fragment() {
         //Log.i(TAG, "Image == $photo")
 
         if(validateAll(name, numberCC)){
-            Log.i(TAG, "${model.registros.size}")
-            model.addRegistro(name, numberCC, distric,"","", date, hour,
-                "Por confirmar", photo, "", "0", "0", "0")
-            Log.i(TAG, "${model.registros.size}")
+            //Log.i(TAG, "${model.registros.size}")
+            model.addRegistroDao(name, numberCC, distric,"","", date, hour,
+                "Por confirmar", "", "", "0", "0", "0")
+            //Log.i(TAG, "${model.registros.size}")
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()

@@ -26,7 +26,7 @@ class FireStatistics : Fragment() {
     private var param2: String? = null
 
     private lateinit var binding : FragmentFireStatisticsBinding
-    private lateinit var viewModel: FireViewModel
+    private lateinit var viewModel: FireViewModelV2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +57,7 @@ class FireStatistics : Fragment() {
             R.layout.fragment_fire_statistics, container, false
         )
         binding = FragmentFireStatisticsBinding.bind(view)
-        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(FireViewModelV2::class.java)
         return binding.root
     }
 

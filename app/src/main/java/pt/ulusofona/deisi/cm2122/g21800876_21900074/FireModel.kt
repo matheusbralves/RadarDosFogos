@@ -7,65 +7,53 @@ import kotlinx.coroutines.launch
 
 //private val TAG = MainActivity::class.java.simpleName
 
-object FireModel {
+object FireModelV2 {
 
     val registros = mutableListOf(
         FireParcelable("test 1", "11111111", "Setubal","Barreiro", "Lavradio",
-        "22/04/2022", "14:15", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "25",
+        "22/04/2022", "14:15", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "25",
             "1", "1", "0"),
 
         FireParcelable("test 2", "22222222", "Lisboa","Lumiar", "Lumiar",
-        "24/04/2022", "12:10", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "25",
+        "24/04/2022", "12:10", "Terminado", Uri.parse(R.drawable.sem_foto.toString()).toString(), "25",
             "2", "2", "2"),
 
         FireParcelable("test 3", "33333333", "Setubal","Moita", "Ronda",
-        "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "35",
+        "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "35",
             "3", "3", "1"),
 
         FireParcelable("test 4", "44444444", "Aveiro","Agueda", "Trofa",
-            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "50",
             "4", "2", "4"),
 
         FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
-            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "50",
             "5", "1", "0"),
-
-        FireParcelable("test 5", "55555555", "Sintra","Colares", "Cocaia",
-            "22/04/2022", "10:25", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "50",
-            "1", "1", "10"),
-
-        FireParcelable("test 5", "55555555", "Sintra","Terrugem", "Loren",
-            "22/04/2022", "10:25", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "50",
-            "1", "1", "5"),
-
-        FireParcelable("test 5", "55555555", "Sintra","Montelavar", "Loren",
-            "22/04/2022", "10:25", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "50",
-            "2", "1", "3"),
     )
 
     private val list25 = mutableListOf(
         FireParcelable("test 1", "11111111", "Setubal","Barreiro", "Lavradio",
-            "22/04/2022", "14:15", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "25",
+            "22/04/2022", "14:15", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "25",
             "1", "1", "1"),
 
         FireParcelable("test 2", "22222222", "Lisboa","Lumiar", "Lumiar",
-            "24/04/2022", "12:10", "Terminado", Uri.parse(R.drawable.sem_foto.toString()), "25",
+            "24/04/2022", "12:10", "Terminado", Uri.parse(R.drawable.sem_foto.toString()).toString(), "25",
             "2", "2", "2"),
     )
 
     private val list35 = mutableListOf(
         FireParcelable("test 3", "33333333", "Setubal","Moita", "Ronda",
-            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "35",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "35",
             "3", "3", "3"),
     )
 
     private val list50 = mutableListOf(
         FireParcelable("test 4", "44444444", "Aveiro","Agueda", "Trofa",
-            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "50",
             "4", "4", "4"),
 
         FireParcelable("test 5", "55555555", "Porto","Valongo", "Campo",
-            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()), "50",
+            "25/04/2022", "10:25", "Em curso", Uri.parse(R.drawable.sem_foto.toString()).toString(), "50",
             "5", "5", "5"),
     )
 
@@ -77,7 +65,7 @@ object FireModel {
                     data : String,
                     hora : String,
                     status : String,
-                    foto : Uri?,
+                    foto : String,
                     distancia : String,
                     operationais : String,
                     veiculos : String,

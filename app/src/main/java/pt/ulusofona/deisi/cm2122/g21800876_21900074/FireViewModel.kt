@@ -2,9 +2,9 @@ package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import androidx.lifecycle.ViewModel
 
-class FireViewModel : ViewModel() {
+class FireViewModelV2 : ViewModel() {
 
-    private val model = FireModel
+    private val model = FireModelV2
 
     fun onGetListDisplay(onFinished: (List<FireParcelable>) -> Unit){
         model.getAllRegistros(onFinished)

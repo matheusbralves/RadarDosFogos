@@ -19,19 +19,20 @@ private val TAG = MainActivity::class.java.simpleName
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
+    private lateinit var model: FireModel
     private val adapter = FireListAdapter(onClick = ::onItemClick)
 
     override fun onStart() {
         super.onStart()
-        binding.rvList.layoutManager = LinearLayoutManager(activity as Context)
+        binding.rvList.layoutManager = LinearLayoutManager(requireContext())
         binding.rvList.adapter = adapter
         binding.mapBtn.setOnClickListener{ activity?.let { it1 ->
             NavigationManager.goToFireMapFragment(
                 it1.supportFragmentManager)
         } }
         //binding.fogosActivosCount.text = viewModel.getActiveFire().size.toString()
-        binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
-        viewModel.onGetListDisplay { updateList(it) }
+        //binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
+        viewModel.getAllFires { updateList(it) }
     }
 
     private fun updateList(fireList : List<FireParcelable>){

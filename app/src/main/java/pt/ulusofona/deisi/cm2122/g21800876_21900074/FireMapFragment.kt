@@ -1,13 +1,18 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
+import android.location.Geocoder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.LatLng
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireMapBinding
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +31,11 @@ class FireMapFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var binding: FragmentFireMapBinding
+    private lateinit var geocoder: Geocoder
+    //referência do mapa
+    private var map: GoogleMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,9 +60,19 @@ class FireMapFragment : Fragment() {
 
         binding = FragmentFireMapBinding.bind(view)
 
+        geocoder = Geocoder(context, Locale.getDefault())
+        binding.map.onCreate(savedInstanceState)
+        binding.map.getMapAsync {
+            map ->
+            this.map = map
+            //FusedLocation.registerListener(this)
+
+        }
+
         // Inflate the layout for this fragment
         return  binding.root
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -61,6 +81,9 @@ class FireMapFragment : Fragment() {
             NavigationManager.goToFireListFragment(
                 it1.supportFragmentManager)
         } }
+        val sydney = LatLng(-34.0, 151.0)
+        //mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        //map?.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 
     companion object {

@@ -37,7 +37,7 @@ class DetailsFragment : Fragment() {
         super.onStart()
         fire?.let{
             binding.localFire.text = "${it.distrito} / " + "${it.conselho} / " + "${it.frequesia}"
-            binding.fotoFire.setImageURI(it.foto?.let { it1 -> setImage(it1) })
+            //binding.fotoFire.setImageURI(it.foto?.let { it1 -> setImage(it1) })
             binding.aereosNumero.text = it.planes
             binding.operacionaisNumero.text = it.operationals
             binding.veiculosNumero.text = it.vehicles

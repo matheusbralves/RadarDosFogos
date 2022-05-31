@@ -24,7 +24,7 @@ private lateinit var binding: FragmentDashboardBinding
 private val TAG = MainActivity::class.java.simpleName
 
 class DashboardFragment : Fragment() {
-    private lateinit var viewModel : FireViewModel
+    private lateinit var viewModel : FireViewModelV2
     private val adapter = FireListAdapter(onClick = ::onItemClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -34,7 +34,7 @@ class DashboardFragment : Fragment() {
         val view = inflater.inflate(
             R.layout.fragment_dashboard, container, false
         )
-        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(FireViewModelV2::class.java)
         binding = FragmentDashboardBinding.bind(view)
         return binding.root
     }

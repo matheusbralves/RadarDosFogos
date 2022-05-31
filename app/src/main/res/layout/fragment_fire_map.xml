@@ -19,12 +19,19 @@
         android:layout_centerHorizontal="true"
         />
 
-    <ImageView
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- IMAGEM QUE A GENTE USAVA ANTES DE IMPLEMENTAR O MAPA
+     <ImageView
         android:id="@+id/fire_map"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/mapa_android" >
     </ImageView>
+     -->
 
 </RelativeLayout>
