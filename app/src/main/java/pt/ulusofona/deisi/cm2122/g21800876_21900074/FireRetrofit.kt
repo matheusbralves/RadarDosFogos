@@ -21,7 +21,14 @@ class FireRetrofit(retrofit: Retrofit) : FireModel() {
     }
 
     override fun getAllFires(onFinished: (List<FireParcelable>) -> Unit) {
-        TODO("Not yet implemented")
+        CoroutineScope(Dispatchers.IO).launch {
+            val fires = service.getAllFires()
+            onFinished(fires.data.map{
+                FireParcelable(it.id, it.district + " / " + it.concelho + " / " + it.freguesia, "", "", it.district,
+                    it.concelho, it.freguesia, it.date, it.hour, it.status, "", "",
+                    it.man, it.terrain, it.aerial,it.lat, it.lng)
+            })
+        }
     }
 
     override fun insertFires(fires: List<FireParcelable>,

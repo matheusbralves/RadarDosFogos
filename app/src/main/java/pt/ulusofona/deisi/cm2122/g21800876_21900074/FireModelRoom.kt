@@ -35,7 +35,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
             onFinished(fires.map{
                 FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                     it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                    it.operationais, it.veiculos, it.planes)
+                    it.operationais, it.veiculos, it.planes,0.0,0.0)
             })
         }
     }

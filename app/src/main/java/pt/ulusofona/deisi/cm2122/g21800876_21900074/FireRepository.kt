@@ -15,10 +15,10 @@ class FireRepository private constructor(private val context: Context,
             "11111111", "Setubal","Barreiro", "Lavradio",
             "22/04/2022", "14:15", "Em curso",
             Uri.parse(R.drawable.sem_foto.toString()).toString(), "25", "1",
-            "1", "0"),
+            "1", "0",0.0,0.0),
     )
 
-    fun getAllRegistrosDao(onFinished: (List<FireParcelable>) -> Unit) {
+    fun getAllFires(onFinished: (List<FireParcelable>) -> Unit) {
         if(ConnectivityUtil.isOnline(context)) {
             remote.getAllFires { history ->
                 local.deleteAllOperations {

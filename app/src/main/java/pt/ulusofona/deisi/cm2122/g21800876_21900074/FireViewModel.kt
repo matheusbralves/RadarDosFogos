@@ -12,9 +12,7 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getAllFires(callback: (List<FireParcelable>) -> Unit){
         CoroutineScope(Dispatchers.Main).launch {
-            model.getAllRegistrosDao(callback)
-            //ALTERAR APENAS ESSA FUNÇÃO PARA MOSTRAR OS ITENS DA LISTA DA API
-            //model.getAllRegistros(callback)
+            model.getAllFires(callback)
         }
     }
 

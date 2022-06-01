@@ -7,22 +7,22 @@ data class FireContent(
     val date:String,
     val hour:String,
     val district: String,
-    val conselho: String,
-    val frequesia: String,
+    val concelho: String,
+    val freguesia: String,
     val status: String,
     val man : String,
-    val vehicles : String,
-    val planes : String,
-    val lat:Int,
-    val lng:Int,
+    val terrain : String,
+    val aerial : String,
+    val lat:Double,
+    val lng:Double,
 )
 
-data class FireData(val data:FireContent)
+data class FireData(val data:List<FireContent>)
 
 interface FireService {
     //Pega todos os fogos
     @GET("/new/fires")
-    suspend fun getAllFires():List<FireData>
+    suspend fun getAllFires():FireData
 
     //@GET("")
     //suspend fun getEspecificFire():FireData

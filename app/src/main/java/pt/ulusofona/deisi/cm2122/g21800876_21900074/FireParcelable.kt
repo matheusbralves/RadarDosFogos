@@ -19,5 +19,7 @@ data class FireParcelable(
     var distancia : String,
     var operationals : String,
     var vehicles : String,
-    var planes : String
+    var planes : String,
+    var lat: Double,
+    var lng: Double,
 ) : Parcelable

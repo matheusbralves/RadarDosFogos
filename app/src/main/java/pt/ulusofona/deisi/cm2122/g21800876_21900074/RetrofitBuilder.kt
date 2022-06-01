@@ -8,7 +8,6 @@ object RetrofitBuilder {
     fun getInstance(path:String) : Retrofit {
         return Retrofit.Builder()
             .baseUrl(path)
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
