@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,11 +17,9 @@ import androidx.fragment.app.Fragment
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentRegisterFireBinding
 import java.text.SimpleDateFormat
 import java.util.*
-import android.app.Application
 
 private lateinit var binding : FragmentRegisterFireBinding
-private lateinit var model : FireModel
-private val TAG = MainActivity::class.java.simpleName
+private lateinit var model : FireModelRoom
 
 const val PICK_IMAGE = 1
 private var imageUri: Uri? = null
@@ -37,13 +34,12 @@ class RegisterFireFragment : Fragment() {
             R.layout.fragment_register_fire, container, false
         )
         binding = FragmentRegisterFireBinding.bind(view)
-        model = FireModel(FireDatabase.getInstance(requireContext()).fireDao())
+        model = FireModelRoom(FireDatabase.getInstance(requireContext()).fireDao())
         return binding.root
     }
 
     override fun onStart(){
         super.onStart()
-        //Log.i(TAG, "Tela registrar fogo")
 
         binding.sendButton.setOnClickListener{ saveRegistro() }
         binding.fotoInput.setOnClickListener{ savePhoto() }
@@ -115,23 +111,15 @@ class RegisterFireFragment : Fragment() {
 
     private fun saveRegistro(){
         val name = binding.nomeInput.text.toString()
-        //Log.i(TAG, "Name == $name")
         val numberCC = binding.numeroccInput.text.toString()
-        //Log.i(TAG, "NumberCC == $numberCC")
         val distric = binding.spinner.selectedItem.toString()
-        //Log.i(TAG, "Distrito == $distric")
         val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
-        //Log.i(TAG, "Data == $date")
         val hour = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
-        //Log.i(TAG, "Hora == $hour")
         val photo = opitionalPhoto()
-        //Log.i(TAG, "Image == $photo")
 
         if(validateAll(name, numberCC)){
-            //Log.i(TAG, "${model.registros.size}")
-            model.addRegistroDao(name, numberCC, distric,"","", date, hour,
+            model.addFire(name, numberCC, distric,"","", date, hour,
                 "Por confirmar", "", "", "0", "0", "0")
-            //Log.i(TAG, "${model.registros.size}")
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()

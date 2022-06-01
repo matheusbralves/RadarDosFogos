@@ -21,8 +21,7 @@ class DetailsFragment : Fragment() {
         arguments?.let { fire = it.getParcelable(ARG_INC) }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.detalhe)
 

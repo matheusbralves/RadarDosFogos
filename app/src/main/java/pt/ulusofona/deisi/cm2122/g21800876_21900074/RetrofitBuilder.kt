@@ -1,4 +1,3 @@
-/*
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -14,5 +13,3 @@ object RetrofitBuilder {
             .build()
     }
 }
-
- */

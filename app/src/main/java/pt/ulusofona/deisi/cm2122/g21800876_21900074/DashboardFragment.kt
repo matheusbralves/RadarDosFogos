@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,10 +19,8 @@ import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboardBinding
 
 private lateinit var binding: FragmentDashboardBinding
-private val TAG = MainActivity::class.java.simpleName
 
 class DashboardFragment : Fragment() {
-    private lateinit var viewModel : FireViewModelV2
     private val adapter = FireListAdapter(onClick = ::onItemClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -34,19 +30,17 @@ class DashboardFragment : Fragment() {
         val view = inflater.inflate(
             R.layout.fragment_dashboard, container, false
         )
-        viewModel = ViewModelProvider(this).get(FireViewModelV2::class.java)
         binding = FragmentDashboardBinding.bind(view)
         return binding.root
     }
 
     override fun onStart(){
         super.onStart()
-        //Log.i(TAG, "Tela dashboard")
         radiusSpinnerSetup()
         binding.radiusList.layoutManager = LinearLayoutManager(activity as Context)
         binding.radiusList.adapter = adapter
         binding.callHelp.setOnClickListener{ callHelp() }
-        viewModel.getDashboardRegistros25 { updateList(it) }
+        //viewModel.getDashboardRegistros25 { updateList(it) }
     }
 
     private fun onItemClick(operation: FireParcelable) {
@@ -81,15 +75,15 @@ class DashboardFragment : Fragment() {
     private fun radiusSelect(){
         when (binding.spinner.selectedItem.toString()) {
             "25 KM" -> {
-                viewModel.getDashboardRegistros25 { updateList(it) }
+                //viewModel.getDashboardRegistros25 { updateList(it) }
             }
 
             "35 KM" -> {
-                viewModel.getDashboardRegistros35 { updateList(it) }
+                //viewModel.getDashboardRegistros35 { updateList(it) }
             }
 
             "50 KM" -> {
-                viewModel.getDashboardRegistros50 { updateList(it) }
+                //viewModel.getDashboardRegistros50 { updateList(it) }
             }
 
             else -> print("nada")

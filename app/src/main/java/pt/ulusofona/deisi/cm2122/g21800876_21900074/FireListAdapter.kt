@@ -1,12 +1,9 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.ItemFireBinding
-
-private val TAG = MainActivity::class.java.simpleName
 
 class FireListAdapter (
     private var items: List<FireParcelable> = listOf(),
@@ -24,7 +21,6 @@ class FireListAdapter (
     }
 
     override fun onBindViewHolder(holder: FireListViewHolder, position: Int) {
-        //Log.i(TAG, "${items[position].nome} TESTE")
         holder.binding.fireLocal.text = "${items[position].distrito} / ${items[position].conselho} / ${items[position].frequesia}"
         when(items[position].status) {
             "Em curso" -> holder.binding.fireStatus.text = holder.itemView.resources.getString(R.string.status_em_curso)

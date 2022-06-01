@@ -1,6 +1,5 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,12 +13,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-private val TAG = MainActivity::class.java.simpleName
-
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
-    private lateinit var model: FireModel
     private val adapter = FireListAdapter(onClick = ::onItemClick)
 
     override fun onStart() {
@@ -30,8 +26,8 @@ class FireListFragment : Fragment() {
             NavigationManager.goToFireMapFragment(
                 it1.supportFragmentManager)
         } }
-        //binding.fogosActivosCount.text = viewModel.getActiveFire().size.toString()
-        //binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
+        binding.fogosActivosCount.text = viewModel.getActiveFire().size.toString()
+        binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
         viewModel.getAllFires { updateList(it) }
     }
 
