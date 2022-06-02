@@ -8,7 +8,12 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import com.fondesa.kpermissions.extension.permissionsBuilder
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.ActivityMainBinding
+import java.util.jar.Manifest
+import com.fondesa.kpermissions.allGranted
+import com.fondesa.kpermissions.extension.permissionsBuilder
+import com.fondesa.kpermissions.extension.send
 
 private lateinit var binding: ActivityMainBinding
 private val TAG = MainActivity::class.java.simpleName
@@ -44,6 +49,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         if(!screenRotated(savedInstanceState)){
             NavigationManager.goToDashboardFragment(supportFragmentManager)
+        }
+
+        permissionsBuilder(
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION).build().send { result ->
+            if (result.allGranted()) {
+                if(!screenRotated(savedInstanceState)) {
+                    NavigationManager.goToFireMapFragment(
+                        supportFragmentManager
+                    )
+                } else {
+                    finish()
+                }
+            }
         }
     }
 

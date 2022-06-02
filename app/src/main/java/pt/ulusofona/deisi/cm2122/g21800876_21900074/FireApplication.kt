@@ -10,6 +10,7 @@ class FireApplication : Application() {
             FireModelRoom(FireDatabase.getInstance(this).fireDao()),
             FireRetrofit(RetrofitBuilder.getInstance("https://api-dev.fogos.pt"))
         )
+        FusedLocation.start(this)
     }
 
 }

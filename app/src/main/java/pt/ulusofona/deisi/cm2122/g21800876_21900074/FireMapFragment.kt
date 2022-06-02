@@ -2,107 +2,62 @@ package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.location.Geocoder
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireMapBinding
 import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FireMapFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-
-private lateinit var binding : FragmentFireMapBinding
-
-class FireMapFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class FireMapFragment : Fragment(), OnLocationChangedListener {
 
     private lateinit var binding: FragmentFireMapBinding
     private lateinit var geocoder: Geocoder
-    //referência do mapa
     private var map: GoogleMap? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.mapa_de_fogos)
-
-        val view = inflater.inflate(
-            R.layout.fragment_fire_map, container, false
-        )
-
-        binding = FragmentFireMapBinding.bind(view)
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val view = inflater.inflate(R.layout.fragment_fire_map, container, false)
         geocoder = Geocoder(context, Locale.getDefault())
+        binding = FragmentFireMapBinding.bind(view)
         binding.map.onCreate(savedInstanceState)
         binding.map.getMapAsync {
-            map ->
-            this.map = map
-            //FusedLocation.registerListener(this)
-
+            map = it
+            FusedLocation.registerListener(this)
         }
-
-        // Inflate the layout for this fragment
-        return  binding.root
+        return binding.root
     }
 
-
-    override fun onStart() {
-        super.onStart()
-
-        binding.listBtn.setOnClickListener{ activity?.let { it1 ->
-            NavigationManager.goToFireListFragment(
-                it1.supportFragmentManager)
-        } }
-        val sydney = LatLng(-34.0, 151.0)
-        //mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        //map?.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    override fun onResume() {
+        super.onResume()
+        binding.map.onResume()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FireMapFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FireMapFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onLocationChanged(latitude: Double, longitude: Double) {
+        placeCamera(latitude, longitude)
+        placeCityName(latitude, longitude)
     }
+
+    private fun placeCamera(latitude: Double, longitude: Double) {
+        val cameraPosition = CameraPosition.Builder()
+            .target(LatLng(latitude, longitude))
+            .zoom(0f)
+            .build()
+        map?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+    }
+
+    private fun placeCityName(latitude: Double, longitude: Double) {
+        val addresses = geocoder.getFromLocation(latitude, longitude, 5)
+        val location = addresses.first { it.locality != null && it.locality.isNotEmpty() }
+        binding.tvCityName.text = location.locality
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        FusedLocation.unregisterListener(this)
+    }
+
 }
