@@ -12,7 +12,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.OnMapReadyCallback;
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireMapBinding
 import java.util.*
 
@@ -60,6 +59,12 @@ class FireMapFragment : Fragment() , OnLocationChangedListener {
             .zoom(12f)
             .build()
         map?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+        val sydney = LatLng(latitude, longitude)
+        map?.addMarker(
+            MarkerOptions()
+                .position(sydney)
+                .title("Marker in Sydney")
+        )
     }
 
     private fun placeCityName(latitude: Double, longitude: Double) {
