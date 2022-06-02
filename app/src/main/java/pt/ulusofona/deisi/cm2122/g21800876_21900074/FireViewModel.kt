@@ -16,6 +16,10 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun getAllFiresList(): List<FireParcelable> {
+        return model.getAllFiresList()
+    }
+
     fun onGetListDisplay(onFinished: (List<FireParcelable>) -> Unit){
         model.getAllRegistros(onFinished)
     }

@@ -12,15 +12,16 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboardBinding
 
-private lateinit var binding: FragmentDashboardBinding
-
 class DashboardFragment : Fragment() {
+    private lateinit var binding: FragmentDashboardBinding
+    private lateinit var viewModel : FireViewModel
     private val adapter = FireListAdapter(onClick = ::onItemClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -31,6 +32,7 @@ class DashboardFragment : Fragment() {
             R.layout.fragment_dashboard, container, false
         )
         binding = FragmentDashboardBinding.bind(view)
+        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         return binding.root
     }
 
@@ -40,11 +42,11 @@ class DashboardFragment : Fragment() {
         binding.radiusList.layoutManager = LinearLayoutManager(activity as Context)
         binding.radiusList.adapter = adapter
         binding.callHelp.setOnClickListener{ callHelp() }
-        //viewModel.getDashboardRegistros25 { updateList(it) }
+        viewModel.getAllFires { updateList(it) }
     }
 
-    private fun onItemClick(operation: FireParcelable) {
-        NavigationManager.goToDetaisFragment(parentFragmentManager, operation)
+    private fun onItemClick(fire: FireParcelable) {
+        NavigationManager.goToDetaisFragment(parentFragmentManager, fire)
     }
 
     private fun updateList(fireList : List<FireParcelable>){

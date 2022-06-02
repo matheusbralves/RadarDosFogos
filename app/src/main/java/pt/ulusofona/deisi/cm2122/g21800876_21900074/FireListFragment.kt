@@ -37,8 +37,8 @@ class FireListFragment : Fragment() {
         }
     }
 
-    private fun onItemClick(operation: FireParcelable) {
-        NavigationManager.goToDetaisFragment(parentFragmentManager, operation)
+    private fun onItemClick(fire: FireParcelable) {
+        NavigationManager.goToDetaisFragment(parentFragmentManager, fire)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

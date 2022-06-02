@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             android.Manifest.permission.ACCESS_COARSE_LOCATION).build().send { result ->
             if (result.allGranted()) {
                 if(!screenRotated(savedInstanceState)) {
-                    NavigationManager.goToFireMapFragment(
+                    NavigationManager.goToDashboardFragment(
                         supportFragmentManager
                     )
                 } else {
