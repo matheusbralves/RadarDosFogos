@@ -64,15 +64,10 @@ class FireMapFragment : Fragment() , OnLocationChangedListener {
             didInitialSetup = true
         }
         //placeCityName(latitude, longitude)
+        placeMarkers()
     }
 
-    private fun placeCamera(latitude: Double, longitude: Double) {
-        val cameraPosition = CameraPosition.Builder()
-            .target(LatLng(latitude, longitude))
-            .zoom(8f)
-            .build()
-        map?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
-
+    fun placeMarkers() {
         for (fire in fires){
             map?.addMarker(
                 MarkerOptions()
@@ -93,6 +88,14 @@ class FireMapFragment : Fragment() , OnLocationChangedListener {
             }
             false
         }
+    }
+
+    private fun placeCamera(latitude: Double, longitude: Double) {
+        val cameraPosition = CameraPosition.Builder()
+            .target(LatLng(latitude, longitude))
+            .zoom(8f)
+            .build()
+        map?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
     }
 
     private fun getFireById(id: String): FireParcelable? {
