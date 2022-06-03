@@ -22,7 +22,10 @@ class FireRepository private constructor(private val context: Context,
                 }
             }
         } else {
-            local.getAllFires(onFinished)
+            local.getAllFires{history ->
+                fires = history
+                onFinished(history)
+            }
         }
     }
 
