@@ -83,6 +83,10 @@ class FireListFragment : Fragment() {
     }
 
     fun getFiresByDistrict(district:String): MutableList<FireParcelable> {
+        if(district == "Todos os Distritos") {
+            return viewModel.getAllFiresList() as MutableList<FireParcelable>
+        }
+
         val allFires = viewModel.getAllFiresList()
         val chosenFires = mutableListOf<FireParcelable>()
         for(fire in allFires) {
