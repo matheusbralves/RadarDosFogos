@@ -1,19 +1,22 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
+
 
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
@@ -58,13 +61,23 @@ class FireListFragment : Fragment() {
 
     private fun districtSpinnerSetup(){
         val spinner: Spinner = binding.spinner
+
+        spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
+                updateList(getFiresByDistrict(spinner.selectedItem.toString()))
+            }
+
+            override fun onNothingSelected(adapterView: AdapterView<*>?) {
+                return
+            }
+        })
+
         ArrayAdapter.createFromResource(
             requireActivity(),
             R.array.district_array_plus_all,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            updateList(getFiresByDistrict(binding.spinner.selectedItem.toString()))
             spinner.adapter = adapter
         }
     }
