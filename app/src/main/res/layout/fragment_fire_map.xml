@@ -14,14 +14,13 @@
         android:id="@+id/list_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginVertical="10dp"
-        android:text="@string/lista_de_fogos"
-        android:drawableLeft="@drawable/ic_location"
-        android:textColor="@color/black"
-        android:background="@drawable/map_or_list_btn"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/map_or_list_btn"
+        android:drawableLeft="@drawable/ic_list"
+        android:padding="10dp"
+        android:text="@string/lista_de_fogos"
+        android:textColor="@color/black" />
 
 
 </RelativeLayout>
