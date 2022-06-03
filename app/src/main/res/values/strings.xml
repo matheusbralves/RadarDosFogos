@@ -61,6 +61,8 @@
     <string name="status_em_curso">Em Curso</string>
     <string name="status_terminado">Terminado</string>
     <string name="status_por_confirmar">Por Confirmar</string>
+    <string name="filtrar_por_distrito">Filtrar por distrito:</string>
+
     <!-- String Detalhes -->
     <string name="detalhe">Detalhe do Fogo</string>
 
