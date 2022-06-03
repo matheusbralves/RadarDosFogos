@@ -27,6 +27,7 @@ class FireMapFragment : Fragment() , OnLocationChangedListener {
     private lateinit var viewModel : FireViewModel
     private var fires: List<FireParcelable> = listOf()
     private var map: GoogleMap? = null
+    private var didInitialSetup = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.mapa_de_fogos)
@@ -58,14 +59,17 @@ class FireMapFragment : Fragment() , OnLocationChangedListener {
     }
 
     override fun onLocationChanged(latitude: Double, longitude: Double) {
-        placeCamera(latitude, longitude)
-        placeCityName(latitude, longitude)
+        if(!didInitialSetup) {
+            placeCamera(latitude, longitude)
+            didInitialSetup = true
+        }
+        //placeCityName(latitude, longitude)
     }
 
     private fun placeCamera(latitude: Double, longitude: Double) {
         val cameraPosition = CameraPosition.Builder()
             .target(LatLng(latitude, longitude))
-            .zoom(12f)
+            .zoom(8f)
             .build()
         map?.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
 
