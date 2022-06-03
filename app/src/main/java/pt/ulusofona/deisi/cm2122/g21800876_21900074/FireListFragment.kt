@@ -60,7 +60,7 @@ class FireListFragment : Fragment() {
         val spinner: Spinner = binding.spinner
         ArrayAdapter.createFromResource(
             requireActivity(),
-            R.array.district_array,
+            R.array.district_array_plus_all,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
