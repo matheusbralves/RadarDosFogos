@@ -48,8 +48,8 @@
     <string name="chamar_ajuda"><b>CALL HELP</b></string>
     <string name="fogos_radius"><b>Fires</b></string>
     <string-array name="radius_array">
-        <item>25 KM</item>
-        <item>35 KM</item>
+        <item>300 KM</item>
+        <item>150 KM</item>
         <item>50 KM</item>
     </string-array>
 
