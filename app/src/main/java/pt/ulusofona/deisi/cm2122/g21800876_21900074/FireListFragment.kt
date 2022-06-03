@@ -64,6 +64,7 @@ class FireListFragment : Fragment() {
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            updateList(getFiresByDistrict(binding.spinner.selectedItem.toString()))
             spinner.adapter = adapter
         }
     }
