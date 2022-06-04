@@ -5,7 +5,8 @@ abstract class FireModel {
     abstract fun addFire(nome : String, numeroCC : String, distrito : String,
                          conselho : String, frequesia : String, data : String, hora : String,
                          status : String, foto : String, distancia : String, operationais : String,
-                         veiculos : String, planes : String, isRegistry : String)
+                         veiculos : String, planes : String, isRegistry : String,
+                         lat : Double, lng : Double)
     abstract fun getAllFires(onFinished: (List<FireParcelable>) -> Unit)
     abstract fun insertFires(fires: List<FireParcelable>, onFinished: (List<FireParcelable>) -> Unit)
     abstract fun deleteAllOperations(onFinished: (List<FireParcelable>) -> Unit)

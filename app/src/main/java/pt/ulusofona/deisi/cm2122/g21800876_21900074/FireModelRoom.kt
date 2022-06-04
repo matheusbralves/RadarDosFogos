@@ -22,11 +22,13 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         veiculos: String,
         planes: String,
         isRegistry : String,
+        lat: Double,
+        lng : Double,
     ) {
-        val fire = FireRoom(fire_name = "", nome = nome, numeroCC = numeroCC, distrito = distrito,
+        val fire = FireRoom(fire_name = distrito, nome = nome, numeroCC = numeroCC, distrito = distrito,
             conselho = conselho, frequesia = frequesia, data = data, hora = hora, status = status,
             foto = foto, distancia = distancia, operationais = operationais, veiculos = veiculos,
-            planes = planes, isRegistry = isRegistry)
+            planes = planes, isRegistry = isRegistry, lat = lat, lng = lng)
 
         CoroutineScope(Dispatchers.IO).launch { dao.insert(fire) }
     }
@@ -37,7 +39,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
             onFinished(fires.map{
                 FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                     it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                    it.operationais, it.veiculos, it.planes,0.0,0.0, "false")
+                    it.operationais, it.veiculos, it.planes,it.lat,it.lng, "false")
             })
         }
     }
@@ -46,7 +48,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val history = fires.map { FireRoom(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                 it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                it.operationals, it.vehicles, it.planes, "false") }
+                it.operationals, it.vehicles, it.planes, "false", it.lat, it.lng) }
             dao.insertAll(history)
             onFinished(fires)
         }
@@ -66,7 +68,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
             onFinished(registeredFires.map{
                 FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                     it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                    it.operationais, it.veiculos, it.planes,0.0,0.0, it.isRegistry)
+                    it.operationais, it.veiculos, it.planes,it.lat,it.lng, it.isRegistry)
             })
         }
     }

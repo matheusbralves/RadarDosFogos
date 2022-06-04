@@ -24,6 +24,8 @@ private lateinit var model : FireModelRoom
 const val PICK_IMAGE = 1
 private var imageUri: Uri? = null
 private var selectedPhoto = false
+private var userLat = 0.0
+private var userLng = 0.0
 
 class RegisterFireFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -109,6 +111,35 @@ class RegisterFireFragment : Fragment() {
             .build()
     }
 
+    private fun setCoordinatesByDistrict(distrito : String){
+        when(distrito){
+            "Castelo Branco" -> {
+                userLat = 39.81827038885831
+                userLng = -7.550259647729445
+            }
+
+            "Faro" -> {
+                userLat = 37.02325874728578
+                userLng = -7.93031592217414
+            }
+
+            "Lisboa" -> {
+                userLat = 38.72268926644138
+                userLng = -9.147866117515152
+            }
+
+            "Porto" -> {
+                userLat = 41.15670628267597
+                userLng = -8.628822700103665
+            }
+
+            "Santarém" -> {
+                userLat = 39.232029189929335
+                userLng = -8.68391234679591
+            }
+        }
+    }
+
     private fun saveRegistro(){
         val name = binding.nomeInput.text.toString()
         val numberCC = binding.numeroccInput.text.toString()
@@ -116,11 +147,12 @@ class RegisterFireFragment : Fragment() {
         val date = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
         val hour = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
         val photo = opitionalPhoto()
+        setCoordinatesByDistrict(distric)
 
         if(validateAll(name, numberCC)){
             model.addFire(name, numberCC, distric,"","", date, hour,
                 "Por confirmar", "", "", "0", "0", "0",
-            "true")
+            "true",userLat,userLng)
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()

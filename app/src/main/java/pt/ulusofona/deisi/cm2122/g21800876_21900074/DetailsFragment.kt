@@ -35,18 +35,14 @@ class DetailsFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         fire?.let{
-            binding.localFire.text = "${it.distrito} / " + "${it.conselho} / " + "${it.frequesia}"
+            binding.localFire.text = it.fire_name
             //binding.fotoFire.setImageURI(it.foto?.let { it1 -> setImage(it1) })
             binding.aereosNumero.text = it.planes
             binding.operacionaisNumero.text = it.operationals
             binding.veiculosNumero.text = it.vehicles
             binding.dataFire.text = it.data
             binding.horaFire.text = it.hora
-            when(it.status) {
-                "Em curso" -> binding.estado.text = resources.getString(R.string.status_em_curso)
-                "Terminado" -> binding.estado.text = resources.getString(R.string.status_terminado)
-                "Por confirmar" -> binding.estado.text = resources.getString(R.string.status_por_confirmar)
-            }
+            binding.estado.text = it.status
         }
     }
 

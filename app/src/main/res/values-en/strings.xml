@@ -23,24 +23,11 @@
     <string name="enviar_foto">Send Photo</string>
     <string name="botao_enviar">Send</string>
     <string-array name="district_array">
-        <item>Aveiro</item>
-        <item>Beja</item>
-        <item>Braga</item>
-        <item>Bragança</item>
         <item>Castelo Branco</item>
-        <item>Coimbra</item>
-        <item>Évora</item>
         <item>Faro</item>
-        <item>Guarda</item>
-        <item>Leiria</item>
         <item>Lisboa</item>
-        <item>Portalegre</item>
         <item>Porto</item>
         <item>Santarém</item>
-        <item>Setúbal</item>
-        <item>Viana do Castelo</item>
-        <item>Vila Real</item>
-        <item>Viseu</item>
     </string-array>
 
     <!-- Strings da Dashboard -->
