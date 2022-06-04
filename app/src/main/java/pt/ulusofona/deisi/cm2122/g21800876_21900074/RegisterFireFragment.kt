@@ -119,7 +119,8 @@ class RegisterFireFragment : Fragment() {
 
         if(validateAll(name, numberCC)){
             model.addFire(name, numberCC, distric,"","", date, hour,
-                "Por confirmar", "", "", "0", "0", "0")
+                "Por confirmar", "", "", "0", "0", "0",
+            "true")
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()

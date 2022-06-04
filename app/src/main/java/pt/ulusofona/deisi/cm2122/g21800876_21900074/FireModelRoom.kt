@@ -1,5 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
+import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,12 +20,13 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         distancia: String,
         operationais: String,
         veiculos: String,
-        planes: String
+        planes: String,
+        isRegistry : String,
     ) {
         val fire = FireRoom(fire_name = "", nome = nome, numeroCC = numeroCC, distrito = distrito,
             conselho = conselho, frequesia = frequesia, data = data, hora = hora, status = status,
             foto = foto, distancia = distancia, operationais = operationais, veiculos = veiculos,
-            planes = planes)
+            planes = planes, isRegistry = isRegistry)
 
         CoroutineScope(Dispatchers.IO).launch { dao.insert(fire) }
     }
@@ -35,7 +37,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
             onFinished(fires.map{
                 FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                     it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                    it.operationais, it.veiculos, it.planes,0.0,0.0)
+                    it.operationais, it.veiculos, it.planes,0.0,0.0, "false")
             })
         }
     }
@@ -44,16 +46,28 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val history = fires.map { FireRoom(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                 it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                it.operationals, it.vehicles, it.planes) }
+                it.operationals, it.vehicles, it.planes, "false") }
             dao.insertAll(history)
             onFinished(fires)
         }
     }
 
-    override fun deleteAllOperations(onFinished: () -> Unit) {
+    override fun deleteAllOperations(onFinished: (List<FireParcelable>) -> Unit) {
         CoroutineScope(Dispatchers.IO).launch {
+            val registeredFires : MutableList<FireRoom> = mutableListOf()
+            val allFires = dao.getAll()
             dao.deleteAll()
-            onFinished()
+            for(fire in allFires){
+                if(fire.isRegistry == "true"){
+                    registeredFires.add(fire)
+                }
+                Log.d("É registro = ",fire.isRegistry)
+            }
+            onFinished(registeredFires.map{
+                FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
+                    it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
+                    it.operationais, it.veiculos, it.planes,0.0,0.0, it.isRegistry)
+            })
         }
     }
 }

@@ -16,7 +16,7 @@ class FireRetrofit(retrofit: Retrofit) : FireModel() {
     override fun addFire(
         nome: String, numeroCC: String, distrito: String, conselho: String, frequesia: String,
         data: String, hora: String, status: String, foto: String, distancia: String,
-        operationais: String, veiculos: String, planes: String) {
+        operationais: String, veiculos: String, planes: String, isRegistry : String) {
         TODO("Not yet implemented")
     }
 
@@ -26,7 +26,7 @@ class FireRetrofit(retrofit: Retrofit) : FireModel() {
             onFinished(fires.data.map{
                 FireParcelable(it.id, it.district + " / " + it.concelho + " / " + it.freguesia, "", "", it.district,
                     it.concelho, it.freguesia, it.date, it.hour, it.status, "", "",
-                    it.man, it.terrain, it.aerial,it.lat, it.lng)
+                    it.man, it.terrain, it.aerial,it.lat, it.lng, "false")
             })
         }
     }
@@ -36,7 +36,7 @@ class FireRetrofit(retrofit: Retrofit) : FireModel() {
         TODO("Not yet implemented")
     }
 
-    override fun deleteAllOperations(onFinished: () -> Unit) {
+    override fun deleteAllOperations(onFinished: (List<FireParcelable>) -> Unit) {
         TODO("Not yet implemented")
     }
 }

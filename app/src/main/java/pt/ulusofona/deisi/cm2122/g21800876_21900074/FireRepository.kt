@@ -14,15 +14,15 @@ class FireRepository private constructor(private val context: Context,
     fun getAllFires(onFinished: (List<FireParcelable>) -> Unit) {
         if(ConnectivityUtil.isOnline(context)) {
             remote.getAllFires { history ->
-                local.deleteAllOperations {
-                    local.insertFires(history) {
-                        fires = history
-                        onFinished(history)
+                local.deleteAllOperations { batata ->
+                    local.insertFires(history + batata) {
+                        fires = history + batata
+                        onFinished(history + batata)
                     }
                 }
             }
         } else {
-            local.getAllFires{history ->
+            local.getAllFires{ history ->
                 fires = history
                 onFinished(history)
             }
