@@ -21,14 +21,14 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         operationais: String,
         veiculos: String,
         planes: String,
-        isRegistry : String,
         lat: Double,
         lng : Double,
+        isRegistry : String,
     ) {
         val fire = FireRoom(fire_name = distrito, nome = nome, numeroCC = numeroCC, distrito = distrito,
             conselho = conselho, frequesia = frequesia, data = data, hora = hora, status = status,
             foto = foto, distancia = distancia, operationais = operationais, veiculos = veiculos,
-            planes = planes, isRegistry = isRegistry, lat = lat, lng = lng)
+            planes = planes, lat = lat, lng = lng, isRegistry = isRegistry)
 
         CoroutineScope(Dispatchers.IO).launch { dao.insert(fire) }
     }
@@ -39,7 +39,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
             onFinished(fires.map{
                 FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                     it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                    it.operationais, it.veiculos, it.planes,it.lat,it.lng, "false")
+                    it.operationais, it.veiculos, it.planes,it.lat,it.lng)
             })
         }
     }
@@ -48,7 +48,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val history = fires.map { FireRoom(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                 it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                it.operationals, it.vehicles, it.planes, "false", it.lat, it.lng) }
+                it.operationals, it.vehicles, it.planes, it.lat, it.lng, it.isRegistry) }
             dao.insertAll(history)
             onFinished(fires)
         }
@@ -58,13 +58,12 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val registeredFires : MutableList<FireRoom> = mutableListOf()
             val allFires = dao.getAll()
-            dao.deleteAll()
             for(fire in allFires){
                 if(fire.isRegistry == "true"){
                     registeredFires.add(fire)
                 }
-                Log.d("É registro = ",fire.isRegistry)
             }
+            dao.deleteAll()
             onFinished(registeredFires.map{
                 FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                     it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,

@@ -16,8 +16,8 @@ class FireRetrofit(retrofit: Retrofit) : FireModel() {
     override fun addFire(
         nome: String, numeroCC: String, distrito: String, conselho: String, frequesia: String,
         data: String, hora: String, status: String, foto: String, distancia: String,
-        operationais: String, veiculos: String, planes: String, isRegistry : String,
-        lat : Double, lng : Double) {
+        operationais: String, veiculos: String, planes: String,
+        lat : Double, lng : Double, isRegistry : String) {
         TODO("Not yet implemented")
     }
 

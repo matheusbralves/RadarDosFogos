@@ -22,9 +22,9 @@ data class FireRoom(
     var operationais : String,
     var veiculos : String,
     var planes : String,
-    var isRegistry : String,
     var lat : Double,
-    var lng : Double
+    var lng : Double,
+    var isRegistry : String = "false",
 ) {
 
     override fun toString(): String {

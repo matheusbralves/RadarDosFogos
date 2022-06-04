@@ -97,35 +97,4 @@ class FireListFragment : Fragment() {
 
         return chosenFires
     }
-
-    fun getFiresByMaxDistance(userLat:Double, userLng:Double, maxDistance:Double): MutableList<FireParcelable> {
-        val allFires = viewModel.getAllFiresList()
-        val chosenFires = mutableListOf<FireParcelable>()
-        for(fire in allFires) {
-            if(defineDistance(userLat, userLng, fire.lat,fire.lng) <= maxDistance) {
-                chosenFires.add(fire)
-            }
-        }
-
-        return chosenFires
-    }
-
-    fun defineDistance(userLat:Double, userLng:Double, fireLat:Double, fireLng:Double):Double {
-        var earthRadiusKm = 6371;
-
-        var dLat = degreesToRadians(userLat-fireLat);
-        var dLon = degreesToRadians(userLng-fireLng);
-
-        var convertedUserLat = degreesToRadians(userLat);
-        var convertedFireLat = degreesToRadians(fireLat);
-
-        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(convertedUserLat) * Math.cos(convertedFireLat);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        return earthRadiusKm * c;
-    }
-
-    fun degreesToRadians(degrees:Double):Double {
-        return degrees * Math.PI / 180;
-    }
 }

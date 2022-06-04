@@ -22,5 +22,5 @@ data class FireParcelable(
     var planes : String,
     var lat: Double,
     var lng: Double,
-    var isRegistry : String,
+    var isRegistry : String = "false",
 ) : Parcelable
