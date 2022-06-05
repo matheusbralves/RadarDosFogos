@@ -1,6 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
-import android.util.Log
+import android.net.Uri
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,11 +24,12 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         lat: Double,
         lng : Double,
         isRegistry : String,
+        photo : String,
     ) {
         val fire = FireRoom(fire_name = distrito, nome = nome, numeroCC = numeroCC, distrito = distrito,
             conselho = conselho, frequesia = frequesia, data = data, hora = hora, status = status,
             foto = foto, distancia = distancia, operationais = operationais, veiculos = veiculos,
-            planes = planes, lat = lat, lng = lng, isRegistry = isRegistry)
+            planes = planes, lat = lat, lng = lng, isRegistry = isRegistry, photo = photo)
 
         CoroutineScope(Dispatchers.IO).launch { dao.insert(fire) }
     }
@@ -48,7 +49,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val history = fires.map { FireRoom(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                 it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                it.operationals, it.vehicles, it.planes, it.lat, it.lng, it.isRegistry) }
+                it.operationals, it.vehicles, it.planes, it.lat, it.lng, it.isRegistry, it.photo) }
             dao.insertAll(history)
             onFinished(fires)
         }
@@ -67,7 +68,7 @@ class FireModelRoom(private val dao: FireDao) : FireModel() {
             onFinished(registeredFires.map{
                 FireParcelable(it.uuid, it.fire_name, it.nome, it.numeroCC, it.distrito,
                     it.conselho, it.frequesia, it.data, it.hora, it.status, it.foto, it.distancia,
-                    it.operationais, it.veiculos, it.planes,it.lat,it.lng, it.isRegistry)
+                    it.operationais, it.veiculos, it.planes,it.lat,it.lng, it.isRegistry, it.photo)
             })
         }
     }

@@ -1,5 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
+import android.net.Uri
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -25,6 +26,7 @@ data class FireRoom(
     var lat : Double,
     var lng : Double,
     var isRegistry : String = "false",
+    var photo : String = "2131230896"
 ) {
 
     override fun toString(): String {

@@ -4,24 +4,24 @@
     <string name="title_activity_main">MainActivity</string>
 
     <!-- Strings do Drawer Menu -->
-    <string name="drawer_open">Aberto</string>
-    <string name="inicio">Inicio</string>
-    <string name="lista_de_fogos">Lista de Fogos</string>
-    <string name="mapa_de_fogos">Mapa de Fogos</string>
-    <string name="registrar_fogo">Registrar Fogo</string>
-    <string name="meus_registros">Meus Registros</string>
-    <string name="stats">Estatísticas</string>
-    <string name="configuracoes">Configurações</string>
-    <string name="drawer_close">Fechado</string>
-    <string name="risk_circle">Risco</string>
+    <string name="drawer_open">Open</string>
+    <string name="inicio">Home</string>
+    <string name="lista_de_fogos">List of Fires</string>
+    <string name="mapa_de_fogos">Map of Fires</string>
+    <string name="registrar_fogo">Register Fire</string>
+    <string name="meus_registros">My Registries</string>
+    <string name="configuracoes">Configurations</string>
+    <string name="drawer_close">Close</string>
+    <string name="risk_circle">Risk</string>
+    <string name="stats">Statistics</string>
 
     <!-- Strings do Registrar Fogo -->
-    <string name="nome">Nome:</string>
-    <string name="numero_cc">Número Cartão Cidadão:</string>
-    <string name="distrito">Distrito:</string>
-    <string name="foto">Foto:</string>
-    <string name="enviar_foto">Enviar Foto</string>
-    <string name="botao_enviar">Enviar</string>
+    <string name="nome">Name:</string>
+    <string name="numero_cc">Citizen Card Number:</string>
+    <string name="distrito">District:</string>
+    <string name="foto">Photo:</string>
+    <string name="enviar_foto">Send Photo</string>
+    <string name="botao_enviar">Send</string>
     <string-array name="district_array">
         <item>Castelo Branco</item>
         <item>Faro</item>
@@ -31,9 +31,9 @@
     </string-array>
 
     <!-- Strings da Dashboard -->
-    <string name="perigo"><b>Está em perigo?</b></string>
-    <string name="chamar_ajuda"><b>CHAMAR AJUDA</b></string>
-    <string name="fogos_radius"><b>Fogos</b></string>
+    <string name="perigo"><b>Are you in danger?</b></string>
+    <string name="chamar_ajuda"><b>CALL HELP</b></string>
+    <string name="fogos_radius"><b>Fires</b></string>
     <string-array name="radius_array">
         <item>300 KM</item>
         <item>150 KM</item>
@@ -41,13 +41,13 @@
     </string-array>
 
     <!-- Strings da Lista de Fogos -->
-    <string name="btn_mapa"><b>Mapa de Fogos</b></string>
-    <string name="fogos_ativos">Fogos Ativos:</string>
+    <string name="btn_mapa"><b>Fire Map</b></string>
+    <string name="fogos_ativos">Active Fires:</string>
 
-    <string name="status_em_curso">Em Curso</string>
-    <string name="status_terminado">Terminado</string>
-    <string name="status_por_confirmar">Por Confirmar</string>
-    <string name="filtrar_por_distrito">Filtrar por distrito:</string>
+    <string name="status_em_curso">Active</string>
+    <string name="status_terminado">Finished</string>
+    <string name="status_por_confirmar">Pending</string>
+    <string name="filtrar_por_distrito">Filter by district:</string>
 
     <string-array name="district_array_plus_all">
         <item>Todos os Distritos</item>
@@ -71,27 +71,28 @@
         <item>Viseu</item>
     </string-array>
 
-    <!-- String Detalhes -->
-    <string name="detalhe">Detalhe do Fogo</string>
+    <!-- String detalhe -->
+    <string name="detalhe">Fire Detail</string>
+    <string name="obs_details">Information not available</string>
 
     <!-- Strings do Mapa de Fogos -->
-    <string name="btn_lista"><b>Lista de Fogos</b></string>
+    <string name="btn_lista"><b>List of Fires</b></string>
 
     <!-- String do Detalhe do Fogo -->
-    <string name="foto_detalhe"><b>Foto do Fogo</b></string>
-    <string name="aereos"><b>Aéreos</b></string>
-    <string name="operacionais"><b>Operacionais</b></string>
-    <string name="veiculos"><b>Veículos</b></string>
-    <string name="data"><b>Data</b></string>
-    <string name="hora"><b>Hora</b></string>
-    <string name="estado"><b>Estado: </b></string>
-    <string name="obs"><b>Observações: </b></string>
+    <string name="foto_detalhe"><b>Fire Foro</b></string>
+    <string name="aereos"><b>Planes</b></string>
+    <string name="operacionais"><b>Operational</b></string>
+    <string name="veiculos"><b>Vehicles</b></string>
+    <string name="data"><b>Date</b></string>
+    <string name="hora"><b>Hour</b></string>
+    <string name="estado"><b>Status: </b></string>
+    <string name="obs"><b>Observations: </b></string>
 
     <!-- String da Estatisticas -->
-    <string name="active_fire">Fogos Ativos: </string>
-    <string name="distMTotalFire">Distrito com mais fogos no total: </string>
-    <string name="distMActiveFire">Distrito com mais fogos ativos: </string>
-    <string name="totalOperational">Total de Operacionais: </string>
-    <string name="totalVeiculos">Total de Veiculos: </string>
-    <string name="totalPlanes">Total de Aviões: </string>
+    <string name="active_fire">Active Fires: </string>
+    <string name="distMTotalFire">District with most fires in total: </string>
+    <string name="distMActiveFire">District with most active fires: </string>
+    <string name="totalOperational">Operationals Total: </string>
+    <string name="totalVeiculos">Vehicle Total: </string>
+    <string name="totalPlanes">Planes Total: </string>
 </resources>

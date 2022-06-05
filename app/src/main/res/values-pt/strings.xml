@@ -1,0 +1,98 @@
+<resources>
+    <!-- Strings do Android -->
+    <string name="app_name">Radar dos Fogos</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- Strings do Drawer Menu -->
+    <string name="drawer_open">Aberto</string>
+    <string name="inicio">Inicio</string>
+    <string name="lista_de_fogos">Lista de Fogos</string>
+    <string name="mapa_de_fogos">Mapa de Fogos</string>
+    <string name="registrar_fogo">Registrar Fogo</string>
+    <string name="meus_registros">Meus Registros</string>
+    <string name="stats">Estatísticas</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="drawer_close">Fechado</string>
+    <string name="risk_circle">Risco</string>
+
+    <!-- Strings do Registrar Fogo -->
+    <string name="nome">Nome:</string>
+    <string name="numero_cc">Número Cartão Cidadão:</string>
+    <string name="distrito">Distrito:</string>
+    <string name="foto">Foto:</string>
+    <string name="enviar_foto">Enviar Foto</string>
+    <string name="botao_enviar">Enviar</string>
+    <string-array name="district_array">
+        <item>Castelo Branco</item>
+        <item>Faro</item>
+        <item>Lisboa</item>
+        <item>Porto</item>
+        <item>Santarém</item>
+    </string-array>
+
+    <!-- Strings da Dashboard -->
+    <string name="perigo"><b>Está em perigo?</b></string>
+    <string name="chamar_ajuda"><b>CHAMAR AJUDA</b></string>
+    <string name="fogos_radius"><b>Fogos</b></string>
+    <string-array name="radius_array">
+        <item>300 KM</item>
+        <item>150 KM</item>
+        <item>50 KM</item>
+    </string-array>
+
+    <!-- Strings da Lista de Fogos -->
+    <string name="btn_mapa"><b>Mapa de Fogos</b></string>
+    <string name="fogos_ativos">Fogos Ativos:</string>
+
+    <string name="status_em_curso">Em Curso</string>
+    <string name="status_terminado">Terminado</string>
+    <string name="status_por_confirmar">Por Confirmar</string>
+    <string name="filtrar_por_distrito">Filtrar por distrito:</string>
+
+    <string-array name="district_array_plus_all">
+        <item>Todos os Distritos</item>
+        <item>Aveiro</item>
+        <item>Beja</item>
+        <item>Braga</item>
+        <item>Bragança</item>
+        <item>Castelo Branco</item>
+        <item>Coimbra</item>
+        <item>Évora</item>
+        <item>Faro</item>
+        <item>Guarda</item>
+        <item>Leiria</item>
+        <item>Lisboa</item>
+        <item>Portalegre</item>
+        <item>Porto</item>
+        <item>Santarém</item>
+        <item>Setúbal</item>
+        <item>Viana do Castelo</item>
+        <item>Vila Real</item>
+        <item>Viseu</item>
+    </string-array>
+
+    <!-- String Detalhes -->
+    <string name="detalhe">Detalhe do Fogo</string>
+    <string name="obs_details">Informação não disponível</string>
+
+    <!-- Strings do Mapa de Fogos -->
+    <string name="btn_lista"><b>Lista de Fogos</b></string>
+
+    <!-- String do Detalhe do Fogo -->
+    <string name="foto_detalhe"><b>Foto do Fogo</b></string>
+    <string name="aereos"><b>Aéreos</b></string>
+    <string name="operacionais"><b>Operacionais</b></string>
+    <string name="veiculos"><b>Veículos</b></string>
+    <string name="data"><b>Data</b></string>
+    <string name="hora"><b>Hora</b></string>
+    <string name="estado"><b>Estado: </b></string>
+    <string name="obs"><b>Observações: </b></string>
+
+    <!-- String da Estatisticas -->
+    <string name="active_fire">Fogos Ativos: </string>
+    <string name="distMTotalFire">Distrito com mais fogos no total: </string>
+    <string name="distMActiveFire">Distrito com mais fogos ativos: </string>
+    <string name="totalOperational">Total de Operacionais: </string>
+    <string name="totalVeiculos">Total de Veiculos: </string>
+    <string name="totalPlanes">Total de Aviões: </string>
+</resources>

@@ -36,13 +36,14 @@ class DetailsFragment : Fragment() {
         super.onStart()
         fire?.let{
             binding.localFire.text = it.fire_name
-            //binding.fotoFire.setImageURI(it.foto?.let { it1 -> setImage(it1) })
+            binding.fotoFire.setImageURI(setImage(Uri.parse(it.photo)))
             binding.aereosNumero.text = it.planes
             binding.operacionaisNumero.text = it.operationals
             binding.veiculosNumero.text = it.vehicles
             binding.dataFire.text = it.data
             binding.horaFire.text = it.hora
             binding.estado.text = it.status
+            binding.obs.text = getString(R.string.obs_details)
         }
     }
 

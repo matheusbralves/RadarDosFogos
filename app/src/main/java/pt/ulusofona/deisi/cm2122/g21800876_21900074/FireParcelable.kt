@@ -1,5 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
+import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -23,4 +24,5 @@ data class FireParcelable(
     var lat: Double,
     var lng: Double,
     var isRegistry : String = "false",
+    var photo : String = "2131230896"
 ) : Parcelable

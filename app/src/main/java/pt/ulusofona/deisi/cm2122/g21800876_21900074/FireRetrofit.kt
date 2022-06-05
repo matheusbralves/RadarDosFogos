@@ -1,11 +1,9 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
-import android.content.IntentSender
-import android.util.Log
+import android.net.Uri
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import retrofit2.Retrofit
 
 class FireRetrofit(retrofit: Retrofit) : FireModel() {
@@ -17,7 +15,7 @@ class FireRetrofit(retrofit: Retrofit) : FireModel() {
         nome: String, numeroCC: String, distrito: String, conselho: String, frequesia: String,
         data: String, hora: String, status: String, foto: String, distancia: String,
         operationais: String, veiculos: String, planes: String,
-        lat : Double, lng : Double, isRegistry : String) {
+        lat : Double, lng : Double, isRegistry : String, photo : String) {
         TODO("Not yet implemented")
     }
 
@@ -27,7 +25,7 @@ class FireRetrofit(retrofit: Retrofit) : FireModel() {
             onFinished(fires.data.map{
                 FireParcelable(it.id, it.district + " / " + it.concelho + " / " + it.freguesia, "", "", it.district,
                     it.concelho, it.freguesia, it.date, it.hour, it.status, "", "",
-                    it.man, it.terrain, it.aerial,it.lat, it.lng, "false")
+                    it.man, it.terrain, it.aerial,it.lat, it.lng, "false", "2131230896")
             })
         }
     }
