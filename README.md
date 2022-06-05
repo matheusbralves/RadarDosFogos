@@ -17,6 +17,9 @@ Screenshots:
     <img width="33%" height="500em" src="Screenshots/Registro.jpg"/>
 </div>
 
+
+Tabela Parte 1:
+
 | Descrição | Implementado? |
 | ------ | ----------- |
 | Dashboard | Implementado |
@@ -30,10 +33,33 @@ Screenshots:
 | Navegabilidade | Implementado |
 | Extra | Implementado |
 
-Autoavaliação = 19
+
+
+Tabela Parte 2:
+
+| Descrição | Implementado? |
+| ------ | ----------- |
+| Dashboard | Implementado |
+| Filtro por nome do distrito | Implementado |
+| Filtro por raio circundante à localização do dispositivo | Implementado |
+| Apresentação dos incêndios -Lista (já com rotação)  | Implementado |
+| Apresentação dos incêndios - Mapa (com localização) | Implementado |
+| Detalhe do incêndio | Implementado |
+| Risco de zona |  |
+| Registo de incêndios | Implementado |
+| Autonomia |  |
+| Offline | Implementado |
+| Extra  | Implementado |
+| Video | Feito |
+
+Video ==
+
+Autoavaliação Parte 1 = 19
+Autoavaliação Parte 2 = 17
 
 Descrição do Ecrã Extra:
 Este ecrã terá informações sobre estatíscas variadas dos incêndios. \
+Agora na segunda parte as estatíscas vem de informações da API. \
 \
 Neste entrega temos as seguintes estatíscas:
 
