@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -94,15 +95,15 @@ class RegisterFireFragment : Fragment() {
         }
     }
 
-    private fun opitionalPhoto() : Uri? {
+    private fun opitionalPhoto() : String {
         return if(selectedPhoto){
-            imageUri
+            imageUri.toString()
         }else{
-            generateUri(R.drawable.sem_foto)
+            "2131230896"
         }
     }
 
-    private fun generateUri(draw : Int) : Uri? {
+    private fun generateUri(draw : Int) : Uri {
         return Uri.Builder()
             .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
             .authority(resources.getResourcePackageName(draw))
@@ -152,7 +153,7 @@ class RegisterFireFragment : Fragment() {
         if(validateAll(name, numberCC)){
             model.addFire(name, numberCC, distric,"","", date, hour,
                 "Por confirmar", "", "", "0", "0", "0",
-            userLat,userLng,"true")
+            userLat,userLng,"true", photo)
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()
             binding.nomeInput.text.clear()
             binding.numeroccInput.text.clear()

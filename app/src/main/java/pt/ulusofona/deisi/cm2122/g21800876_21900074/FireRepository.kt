@@ -14,10 +14,10 @@ class FireRepository private constructor(private val context: Context,
     fun getAllFires(onFinished: (List<FireParcelable>) -> Unit) {
         if(ConnectivityUtil.isOnline(context)) {
             remote.getAllFires { history ->
-                local.deleteAllOperations { batata ->
-                    local.insertFires(history + batata) {
-                        fires = history + batata
-                        onFinished(history + batata)
+                local.deleteAllOperations { registers ->
+                    local.insertFires(history + registers) {
+                        fires = history + registers
+                        onFinished(history + registers)
                     }
                 }
             }
@@ -54,20 +54,8 @@ class FireRepository private constructor(private val context: Context,
         return activeFires
     }
 
-    fun getFiresInRange(range : Int) : List<FireParcelable>{
-        var firesInRange = listOf<FireParcelable>()
-
-        for (f in fires) {
-            if (f.status == "Em curso") {
-                firesInRange = firesInRange + f
-            }
-        }
-
-        return firesInRange
-    }
-
     fun getDistrictWithMostFires() : String {
-        var firesByDistrict : MutableMap<String, Int> = mutableMapOf<String,Int>()
+        val firesByDistrict : MutableMap<String, Int> = mutableMapOf()
         var districtWithMostFiresName = "Distrito"
         var districtWithMostFiresValue = 0
 
@@ -90,7 +78,7 @@ class FireRepository private constructor(private val context: Context,
     }
 
     fun getDistrictWithMostActiveFires() : String {
-        var firesByDistrict : MutableMap<String, Int> = mutableMapOf<String,Int>()
+        val firesByDistrict : MutableMap<String, Int> = mutableMapOf()
         var districtWithMostFiresName = "Distrito"
         var districtWithMostFiresValue = 0
 
