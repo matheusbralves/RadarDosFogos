@@ -43,15 +43,7 @@ class FireRepository private constructor(private val context: Context,
 
     //Funções para estatisticas
     fun getActiveFires() : List<FireParcelable>{
-        var activeFires = listOf<FireParcelable>()
-
-        for (f in fires) {
-            if (f.status == "Em curso") {
-                activeFires = activeFires + f
-            }
-        }
-
-        return activeFires
+        return fires
     }
 
     fun getDistrictWithMostFires() : String {
@@ -101,7 +93,7 @@ class FireRepository private constructor(private val context: Context,
     }
 
     fun getTotalOperationals(): Int {
-        val activeFires = getActiveFires()
+        val activeFires = fires
         var totalOperationals = 0
 
         for(fire in activeFires) {
@@ -112,7 +104,7 @@ class FireRepository private constructor(private val context: Context,
     }
 
     fun getTotalVehicles(): Int {
-        val activeFires = getActiveFires()
+        val activeFires = fires
         var totalVehicle = 0
 
         for(fire in activeFires) {
@@ -123,7 +115,7 @@ class FireRepository private constructor(private val context: Context,
     }
 
     fun getTotalPlanes(): Int {
-        val activeFires = getActiveFires()
+        val activeFires = fires
         var totalPlanes = 0
 
         for(fire in activeFires) {

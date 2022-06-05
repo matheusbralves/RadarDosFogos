@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.fondesa.kpermissions.extension.permissionsBuilder
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.ActivityMainBinding
 import java.util.jar.Manifest
@@ -18,35 +19,54 @@ import com.fondesa.kpermissions.extension.send
 private lateinit var binding: ActivityMainBinding
 private val TAG = MainActivity::class.java.simpleName
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnLocationChangedListener {
 
-    private val handler = Handler(Looper.getMainLooper())
+    private lateinit var viewModel : FireViewModel
 
-    private val cores = arrayListOf(
-        R.drawable.circle_maximo,
-        R.drawable.circle_muito_elevado,
-        R.drawable.circle_elevado,
-        R.drawable.circle_moderado,
-        R.drawable.circle_reduzido
-    )
 
-    var indexCores = -1
-
-    private val looper = object: Runnable {
-        override fun run() {
-            indexCores += 1
-            if(indexCores > 4){
-                indexCores = 0
+    override fun onLocationChanged(latitude: Double, longitude: Double) {
+        val fires = viewModel.getAllFiresList()
+        var nFires = 0
+        for(fire in fires) {
+            if(defineDistance(latitude,longitude,fire.lat, fire.lng) <= 150.00){
+                nFires++
             }
-            binding.riskCircle.setBackgroundResource(cores[indexCores])
-            handler.postDelayed(this, 20000)
         }
+
+        when(nFires) {
+            0 -> binding.riskCircle.setBackgroundResource(R.drawable.circle_reduzido)
+            1 -> binding.riskCircle.setBackgroundResource(R.drawable.circle_moderado)
+            2 -> binding.riskCircle.setBackgroundResource(R.drawable.circle_elevado)
+            3 -> binding.riskCircle.setBackgroundResource(R.drawable.circle_muito_elevado)
+            4 -> binding.riskCircle.setBackgroundResource(R.drawable.circle_maximo)
+        }
+    }
+
+    fun defineDistance(userLat:Double, userLng:Double, fireLat:Double, fireLng:Double):Double {
+        var earthRadiusKm = 6371;
+
+        var dLat = degreesToRadians(userLat-fireLat);
+        var dLon = degreesToRadians(userLng-fireLng);
+
+        var convertedUserLat = degreesToRadians(userLat);
+        var convertedFireLat = degreesToRadians(fireLat);
+
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(convertedUserLat) * Math.cos(convertedFireLat);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return earthRadiusKm * c;
+    }
+
+    fun degreesToRadians(degrees:Double):Double {
+        return degrees * Math.PI / 180;
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        FusedLocation.registerListener(this)
         setContentView(binding.root)
+        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
         if(!screenRotated(savedInstanceState)){
             NavigationManager.goToDashboardFragment(supportFragmentManager)
         }
@@ -70,16 +90,6 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         setSupportActionBar(binding.toolbar)
         setupDrawerMenu()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        handler.postDelayed(looper, 20000)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        handler.removeCallbacks(looper)
     }
 
     private fun screenRotated(savedInstanceState: Bundle?) : Boolean {

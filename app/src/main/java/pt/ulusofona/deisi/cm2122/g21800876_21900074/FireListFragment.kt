@@ -32,7 +32,7 @@ class FireListFragment : Fragment() {
                 it1.supportFragmentManager)
         } }
         districtSpinnerSetup()
-        binding.fogosActivosCount.text = viewModel.getActiveFire().size.toString()
+        binding.fogosActivosCount.text = viewModel.getAllFiresList().size.toString()
         binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
         viewModel.getAllFires { updateList(it) }
     }
