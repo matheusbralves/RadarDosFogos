@@ -45,19 +45,19 @@ Tabela Parte 2:
 | Apresentação dos incêndios -Lista (já com rotação)  | Implementado |
 | Apresentação dos incêndios - Mapa (com localização) | Implementado |
 | Detalhe do incêndio | Implementado |
-| Risco de zona |  |
+| Risco de zona | Implementado |
 | Registo de incêndios | Implementado |
-| Autonomia |  |
+| Autonomia | Não Implementado |
 | Offline | Implementado |
 | Extra  | Implementado |
 | Video | Feito |
 
-Video ==
+Video = https://www.youtube.com/watch?v=QwRPN44-f_U
 
-Autoavaliação Parte 1 = 19
-Autoavaliação Parte 2 = 17
+Autoavaliação Parte 1 = 19 \
+Autoavaliação Parte 2 = 18 \
 
-Descrição do Ecrã Extra:
+Descrição do Ecrã Extra: \
 Este ecrã terá informações sobre estatíscas variadas dos incêndios. \
 Agora na segunda parte as estatíscas vem de informações da API. \
 \

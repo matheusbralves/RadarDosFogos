@@ -24,7 +24,7 @@ class DashboardFragment : Fragment(), OnLocationChangedListener  {
     private lateinit var viewModel : FireViewModel
     private val adapter = FireListAdapter(onClick = ::onItemClick)
     private var userLat = 0.0;
-    private var userLng = 0.0;
+    private var userLng = 0.0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
