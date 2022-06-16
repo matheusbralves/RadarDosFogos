@@ -4,6 +4,12 @@ import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+/***
+ *
+ * Classe padrão de Fire
+ *
+ * ***/
+
 @Parcelize
 data class FireParcelable(
     var uuid: String,

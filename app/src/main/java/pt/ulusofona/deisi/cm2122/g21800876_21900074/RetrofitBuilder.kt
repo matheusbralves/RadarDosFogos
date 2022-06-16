@@ -4,6 +4,12 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/***
+ *
+ * Pega o endereço da API e le o JSON
+ *
+ * ***/
+
 object RetrofitBuilder {
     fun getInstance(path:String) : Retrofit {
         return Retrofit.Builder()

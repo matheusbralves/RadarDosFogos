@@ -13,12 +13,18 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireMapBinding
 import java.util.*
 
+/***
+ *
+ * Caso precise mudar algo no Mapa é nesse fragmento
+ *
+ * ***/
 
 class FireMapFragment : Fragment() , OnLocationChangedListener {
 
@@ -31,7 +37,10 @@ class FireMapFragment : Fragment() , OnLocationChangedListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.mapa_de_fogos)
+
+        //Layout do Mapa
         val view = inflater.inflate(R.layout.fragment_fire_map, container, false)
+
         geocoder = Geocoder(context, Locale.getDefault())
         binding = FragmentFireMapBinding.bind(view)
         binding.map.onCreate(savedInstanceState)
@@ -67,12 +76,15 @@ class FireMapFragment : Fragment() , OnLocationChangedListener {
         placeMarkers()
     }
 
+    //Mudar cor do icone com if + .icon mudar o HUE
     fun placeMarkers() {
         for (fire in fires){
+            //if (fire.status == "Pegando fogo")
             map?.addMarker(
                 MarkerOptions()
                     .position(LatLng(fire.lat, fire.lng))
                     .title(fire.uuid)
+                    //.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
             )
         }
 

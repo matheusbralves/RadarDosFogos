@@ -5,6 +5,12 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.*
 import android.util.Log
 
+/***
+ *
+ * Classe usada no Repository pra ver se ta online ou não
+ *
+ * ***/
+
 object ConnectivityUtil {
 
     private val TAG = ConnectivityUtil::class.java.simpleName

@@ -4,6 +4,12 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
+/***
+ *
+ * Funções para mexer na database local
+ *
+ * ***/
+
 @Dao
 interface FireDao {
     @Insert

@@ -19,6 +19,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboardBinding
 
+/***
+ *
+ * Caso precise mudar algo na Dashboard é nesse fragmento
+ *
+ * ***/
+
 class DashboardFragment : Fragment(), OnLocationChangedListener  {
     private lateinit var binding: FragmentDashboardBinding
     private lateinit var viewModel : FireViewModel
@@ -30,6 +36,7 @@ class DashboardFragment : Fragment(), OnLocationChangedListener  {
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.inicio)
 
+        //Layout da Dashboard
         val view = inflater.inflate(
             R.layout.fragment_dashboard, container, false
         )

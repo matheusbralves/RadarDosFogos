@@ -2,6 +2,14 @@ package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import retrofit2.http.*
 
+/***
+ *
+ * Classe da API
+ * Caso precise de mais variáveis mudar aqui + FireParcelable + FireRetrofit
+ * FireService - API == FireRoom - DAO
+ *
+ * ***/
+
 data class FireContent(
     val id:String,
     val date:String,

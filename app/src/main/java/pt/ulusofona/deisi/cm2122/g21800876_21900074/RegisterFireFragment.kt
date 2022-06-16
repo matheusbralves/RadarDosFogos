@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,8 +18,14 @@ import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentRegister
 import java.text.SimpleDateFormat
 import java.util.*
 
+/***
+ *
+ * Caso precise mudar algo no Registro é nesse fragmento
+ *
+ * ***/
+
 private lateinit var binding : FragmentRegisterFireBinding
-private lateinit var model : FireModelRoom
+private lateinit var firemodelroom : FireModelRoom
 
 const val PICK_IMAGE = 1
 private var imageUri: Uri? = null
@@ -33,11 +38,13 @@ class RegisterFireFragment : Fragment() {
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.registrar_fogo)
 
+        //Layout do Registro
         val view = inflater.inflate(
             R.layout.fragment_register_fire, container, false
         )
+
         binding = FragmentRegisterFireBinding.bind(view)
-        model = FireModelRoom(FireDatabase.getInstance(requireContext()).fireDao())
+        firemodelroom = FireModelRoom(FireDatabase.getInstance(requireContext()).fireDao())
         return binding.root
     }
 
@@ -151,7 +158,7 @@ class RegisterFireFragment : Fragment() {
         setCoordinatesByDistrict(distric)
 
         if(validateAll(name, numberCC)){
-            model.addFire(name, numberCC, distric,"","", date, hour,
+            firemodelroom.addFire(name, numberCC, distric,"","", date, hour,
                 "Por confirmar", "", "", "0", "0", "0",
             userLat,userLng,"true", photo)
             Toast.makeText(activity, "Fogo registrado com sucesso!", Toast.LENGTH_SHORT).show()

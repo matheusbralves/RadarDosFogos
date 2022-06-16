@@ -5,11 +5,26 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/***
+ *
+ * Repository serve para juntar as listas do DAO e da API
+ * Implementa funções usadas em fragmentos
+ * Caminho == Implmenta função aqui >> Cria a chamada no ViewModel >> Instancia a ViewModel no Fragmento
+ *
+ *
+ * LOCAL == FireModelRoom do DAO
+ *
+ * REMOTE == FireRetrofit da API
+ *
+ * ****/
+
 class FireRepository private constructor(private val context: Context,
                                          private val local: FireModel,
                                          private val remote: FireModel) {
 
     private var fires : List<FireParcelable> = emptyList()
+
+    //Funções usadas na ViewModel
 
     fun getAllFires(onFinished: (List<FireParcelable>) -> Unit) {
         if(ConnectivityUtil.isOnline(context)) {
@@ -29,8 +44,6 @@ class FireRepository private constructor(private val context: Context,
         }
     }
 
-    //Funções do model anterior ADAPTAR
-    //Função pra retornar a lista de Fires da API AINDA NÃO TEM
     fun getAllRegistros(onFinished: (List<FireParcelable>) -> Unit) {
         CoroutineScope(Dispatchers.IO).launch {
             onFinished(fires)
@@ -39,6 +52,17 @@ class FireRepository private constructor(private val context: Context,
 
     fun getAllFiresList() : List<FireParcelable>{
         return fires
+    }
+
+    //Função de LongClick pra apagar
+    fun deleteFire(fire: FireParcelable, onSucess: () -> Unit) {
+        for(fireInList in fires){
+            if(fireInList.uuid == fire.uuid){
+
+            }
+        }
+        //Fazer a função
+        onSucess()
     }
 
     //Funções para estatisticas

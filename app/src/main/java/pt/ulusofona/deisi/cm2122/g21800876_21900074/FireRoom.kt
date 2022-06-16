@@ -6,6 +6,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
+/***
+ *
+ * Classe da DAO
+ * FireService - API == FireRoom - DAO
+ *
+ * ***/
+
 @Entity(tableName = "fire")
 data class FireRoom(
     @PrimaryKey val uuid: String = UUID.randomUUID().toString(),

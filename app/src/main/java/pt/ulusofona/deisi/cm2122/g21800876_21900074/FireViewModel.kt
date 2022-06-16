@@ -6,48 +6,57 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/***
+ *
+ * Classe que serve de conexão entre Repository e Fragmentos
+ * Chamadas das funções do reposotory
+ *
+ * ***/
+
 class FireViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val model = FireRepository.getInstance()
+    private val repository = FireRepository.getInstance()
 
     fun getAllFires(callback: (List<FireParcelable>) -> Unit){
         CoroutineScope(Dispatchers.Main).launch {
-            model.getAllFires(callback)
+            repository.getAllFires(callback)
         }
     }
 
+    fun getAllRegistros(onFinished: (List<FireParcelable>) -> Unit){
+        repository.getAllRegistros(onFinished)
+    }
+
     fun getAllFiresList(): List<FireParcelable> {
-        return model.getAllFiresList()
+        return repository.getAllFiresList()
     }
-
-    fun onGetListDisplay(onFinished: (List<FireParcelable>) -> Unit){
-        model.getAllRegistros(onFinished)
-    }
-
-    //Funções do ViewModel antigo talvez tenha q adaptar
 
     fun getActiveFire() : List<FireParcelable> {
-        return model.getActiveFires()
+        return repository.getActiveFires()
     }
 
     fun getDistrictWithMostFires() : String {
-        return model.getDistrictWithMostFires()
+        return repository.getDistrictWithMostFires()
     }
 
     fun getDistrictWithMostActiveFires() : String {
-        return model.getDistrictWithMostActiveFires()
+        return repository.getDistrictWithMostActiveFires()
     }
 
     fun getTotalOperationals(): Int {
-        return model.getTotalOperationals()
+        return repository.getTotalOperationals()
     }
 
     fun getTotalVehicles(): Int {
-        return model.getTotalVehicles()
+        return repository.getTotalVehicles()
     }
 
     fun getTotalPlanes(): Int {
-        return model.getTotalPlanes()
+        return repository.getTotalPlanes()
     }
 
+    //Função pra deletar em longClick
+    fun deleteFire(fire: FireParcelable, onSucess: () -> Unit) {
+        return repository.deleteFire(fire, onSucess)
+    }
 }

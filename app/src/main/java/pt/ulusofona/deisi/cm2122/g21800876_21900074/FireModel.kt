@@ -2,6 +2,14 @@ package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.net.Uri
 
+/***
+ *
+ * Classe padrão para FireRetrofit e FireModelRoom
+ * Criar definição das funões abstratas para depois implementar no Retrofit e no ModelRoom
+ * Não necessáriamente precisa implementar as funções nos 2 (Deixar como TODO)
+ *
+ * ***/
+
 abstract class FireModel {
     //Funções utilizadas em FireRoomModel e FireRetrofit
     abstract fun addFire(nome : String, numeroCC : String, distrito : String,

@@ -5,6 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+/***
+ *
+ * Serve para instanciar o firemodelroom no RegisterFragment
+ *
+ * ***/
+
 @Database(entities = [FireRoom::class], version = 1)
 abstract class FireDatabase : RoomDatabase() {
 

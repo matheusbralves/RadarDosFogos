@@ -1,7 +1,6 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,11 +16,32 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireListBinding
 
+/***
+ *
+ * Caso precise mudar algo na Lista é nesse fragmento
+ *
+ * Adicionar longClick no mesmo lugar do onClick caso precise
+ *
+ * ***/
 
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
-    private val adapter = FireListAdapter(onClick = ::onItemClick)
+    private val adapter = FireListAdapter(onClick = ::onItemClick) //onLongClick = ::onLongClick)
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.lista_de_fogos)
+
+        //Layout da Lista
+        val view = inflater.inflate(
+            R.layout.fragment_fire_list, container, false
+        )
+
+        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
+        binding = FragmentFireListBinding.bind(view)
+        return binding.root
+    }
 
     override fun onStart() {
         super.onStart()
@@ -47,16 +67,10 @@ class FireListFragment : Fragment() {
         NavigationManager.goToDetaisFragment(parentFragmentManager, fire)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.lista_de_fogos)
-
-        val view = inflater.inflate(
-            R.layout.fragment_fire_list, container, false
-        )
-        viewModel = ViewModelProvider(this).get(FireViewModel::class.java)
-        binding = FragmentFireListBinding.bind(view)
-        return binding.root
+    //Função de longClick caso precise
+    private fun onLongClick(fire: FireParcelable ) : Boolean {
+        viewModel.deleteFire(fire) { viewModel.getAllFires { updateList(it) } }
+        return false
     }
 
     private fun districtSpinnerSetup(){

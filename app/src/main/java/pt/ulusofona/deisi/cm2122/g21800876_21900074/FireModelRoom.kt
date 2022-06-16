@@ -5,6 +5,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/***
+ *
+ * Classe que transforma a classe padrão - FireParceble em FireRoom para DAO
+ * FireRetrofit - API == FireModelRoom - DAO
+ *
+ * ***/
+
 class FireModelRoom(private val dao: FireDao) : FireModel() {
 
     override fun addFire(
