@@ -55,14 +55,20 @@ class FireRepository private constructor(private val context: Context,
     }
 
     //Função de LongClick pra apagar
-    fun deleteFire(fire: FireParcelable, onSucess: () -> Unit) {
-        for(fireInList in fires){
-            if(fireInList.uuid == fire.uuid){
+    fun deleteFire(fire: FireParcelable, onSucess: (List<FireParcelable>) -> Unit) {
+        val firesFiltered : MutableList<FireParcelable> = mutableListOf()
 
+        for(fireInList in fires){
+            if(fireInList.uuid != fire.uuid){
+                firesFiltered.add(fireInList)
             }
         }
-        //Fazer a função
-        onSucess()
+
+        local.deleteAllOperations {
+            local.insertFires(firesFiltered) {
+                onSucess(firesFiltered)
+            }
+        }
     }
 
     //Funções para estatisticas

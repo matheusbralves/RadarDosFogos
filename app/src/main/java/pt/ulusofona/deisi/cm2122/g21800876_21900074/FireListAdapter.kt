@@ -18,8 +18,8 @@ import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.ItemFireBinding
 
 class FireListAdapter (
     private var items: List<FireParcelable> = listOf(),
-    private val onClick: (FireParcelable) -> Unit)
-    //private val onLongClick: (FireParcelable) -> Boolean)
+    private val onClick: (FireParcelable) -> Unit,
+    private val onLongClick: (FireParcelable) -> Boolean)
     : RecyclerView.Adapter<FireListAdapter.FireListViewHolder>() {
     class FireListViewHolder(val  binding: ItemFireBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -40,7 +40,7 @@ class FireListAdapter (
         holder.binding.fireHora.text = items[position].hora
 
         holder.binding.itemFire.setOnClickListener{ onClick(items[position]) }
-        //holder.binding.itemFire.setOnLongClickListener{ onLongClick(items[position]) }
+        holder.binding.itemFire.setOnLongClickListener{ onLongClick(items[position]) }
     }
 
     override fun getItemCount() = items.size

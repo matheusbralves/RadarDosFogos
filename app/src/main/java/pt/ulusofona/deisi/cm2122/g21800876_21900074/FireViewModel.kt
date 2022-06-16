@@ -56,7 +56,7 @@ class FireViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     //Função pra deletar em longClick
-    fun deleteFire(fire: FireParcelable, onSucess: () -> Unit) {
+    fun deleteFire(fire: FireParcelable, onSucess: (List<FireParcelable>) -> Unit) {
         return repository.deleteFire(fire, onSucess)
     }
 }

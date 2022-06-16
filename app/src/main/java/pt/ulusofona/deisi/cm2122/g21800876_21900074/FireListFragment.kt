@@ -1,6 +1,7 @@
 package pt.ulusofona.deisi.cm2122.g21800876_21900074
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +28,7 @@ import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentFireList
 class FireListFragment : Fragment() {
     private lateinit var binding: FragmentFireListBinding
     private lateinit var viewModel : FireViewModel
-    private val adapter = FireListAdapter(onClick = ::onItemClick) //onLongClick = ::onLongClick)
+    private val adapter = FireListAdapter(onClick = ::onItemClick, onLongClick = ::onLongClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //Adicionar isso em todos os fragmentos pra ficar com o titulo certo na barra laranja
@@ -68,7 +69,8 @@ class FireListFragment : Fragment() {
     }
 
     //Função de longClick caso precise
-    private fun onLongClick(fire: FireParcelable ) : Boolean {
+    private fun onLongClick(fire: FireParcelable) : Boolean {
+        Log.d("Coisa","Funciono longo")
         viewModel.deleteFire(fire) { viewModel.getAllFires { updateList(it) } }
         return false
     }

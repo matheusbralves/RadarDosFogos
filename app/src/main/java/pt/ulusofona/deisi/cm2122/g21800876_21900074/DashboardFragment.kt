@@ -28,7 +28,7 @@ import pt.ulusofona.deisi.cm2122.g21800876_21900074.databinding.FragmentDashboar
 class DashboardFragment : Fragment(), OnLocationChangedListener  {
     private lateinit var binding: FragmentDashboardBinding
     private lateinit var viewModel : FireViewModel
-    private val adapter = FireListAdapter(onClick = ::onItemClick)
+    private val adapter = FireListAdapter(onClick = ::onItemClick, onLongClick = ::onLongClick)
     private var userLat = 0.0;
     private var userLng = 0.0
 
@@ -62,6 +62,12 @@ class DashboardFragment : Fragment(), OnLocationChangedListener  {
 
     private fun onItemClick(fire: FireParcelable) {
         NavigationManager.goToDetaisFragment(parentFragmentManager, fire)
+    }
+
+    //Função de longClick caso precise
+    private fun onLongClick(fire: FireParcelable) : Boolean {
+        viewModel.deleteFire(fire) { viewModel.getAllFires { updateList(it) } }
+        return false
     }
 
     private fun updateList(fireList : List<FireParcelable>){
