@@ -59,7 +59,7 @@ class FireRepository private constructor(private val context: Context,
         val firesFiltered : MutableList<FireParcelable> = mutableListOf()
 
         for(fireInList in fires){
-            if(fireInList.uuid != fire.uuid){
+            if(fireInList.uuid != fire.uuid && fireInList.isRegistry == "true"){
                 firesFiltered.add(fireInList)
             }
         }

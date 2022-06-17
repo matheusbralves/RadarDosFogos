@@ -54,7 +54,7 @@ class FireListFragment : Fragment() {
         } }
         districtSpinnerSetup()
         binding.fogosActivosCount.text = viewModel.getAllFiresList().size.toString()
-        binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
+        //binding.fogosActivosCount.text = viewModel.getDistrictWithMostFires()
         viewModel.getAllFires { updateList(it) }
     }
 
@@ -113,4 +113,39 @@ class FireListFragment : Fragment() {
 
         return chosenFires
     }
+
+    fun sortFiresByDate(reverse: Boolean = false): MutableList<FireParcelable> {
+        val allFires = viewModel.getAllFiresList()
+        val sortedFires = mutableListOf<FireParcelable>()
+
+        for(fireInList in allFires) {
+                sortedFires.add(fireInList)
+        }
+
+        if(!reverse) {
+            sortedFires.sortBy {it.data}
+        } else {
+            sortedFires.sortByDescending { it.data }
+        }
+
+        return sortedFires
+    }
+
+    fun sortFiresByTime(reverse: Boolean = false): MutableList<FireParcelable> {
+        val allFires = viewModel.getAllFiresList()
+        val sortedFires = mutableListOf<FireParcelable>()
+
+        for(fireInList in allFires) {
+            sortedFires.add(fireInList)
+        }
+
+        if(!reverse) {
+            sortedFires.sortBy {it.hora}
+        } else {
+            sortedFires.sortByDescending { it.hora }
+        }
+
+        return sortedFires
+    }
+
 }

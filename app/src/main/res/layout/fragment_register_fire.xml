@@ -8,11 +8,13 @@
     android:padding="16dp"
     tools:context=".RegisterFireFragment">
 
+    <!-- LinearLayout que junta tudo -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- NOME -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,6 +37,7 @@
 
         </LinearLayout>
 
+        <!-- NUMERO CC -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,6 +61,7 @@
 
         </LinearLayout>
 
+        <!-- DISTRITO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,6 +83,8 @@
 
         </LinearLayout>
 
+
+        <!-- FOTO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,6 +107,32 @@
 
         </LinearLayout>
 
+        <!-- CAMPO DE TEXTO PARA DEFESA -->
+        <!--
+                <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dp">
+
+            <TextView
+                android:id="@+id/def_text_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/def_text_input" />
+
+            <EditText
+                android:id="@+id/def_text_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+         -->
+
+        <!-- SEND BUTTON -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

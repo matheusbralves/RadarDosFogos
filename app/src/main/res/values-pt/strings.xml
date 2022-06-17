@@ -95,4 +95,8 @@
     <string name="totalOperational">Total de Operacionais: </string>
     <string name="totalVeiculos">Total de Veiculos: </string>
     <string name="totalPlanes">Total de Aviões: </string>
+
+
+    <!-- Strings para Defesa -->
+    <string name="def_text_input">Def Input text ptbr</string>
 </resources>
