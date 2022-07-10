@@ -58,7 +58,7 @@ class FusedLocation private constructor(context: Context) : LocationCallback() {
         // Se tivermos vários listeners, temos de os notificar com um forEach
         fun notifyListener(locationResult: LocationResult) {
             val location = locationResult.lastLocation
-            listeners.forEach { it.onLocationChanged(location.latitude, location.longitude) }
+            listeners.forEach { it.onLocationChanged(location!!.latitude, location.longitude) }
         }
 
         // Só teremos uma instância em execução
